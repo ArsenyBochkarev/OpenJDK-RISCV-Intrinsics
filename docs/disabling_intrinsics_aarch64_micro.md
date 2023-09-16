@@ -1,6 +1,6 @@
 Results on enabling/disabling intrinsics for AArch64 platform:
 
-### [ChaCha20 jmh microbench](https://github.com/openjdk/jdk/blob/master/test/micro/org/openjdk/bench/javax/crypto/full/CipherBench.java#L212):
+### [ChaCha20 jmh microbench](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/ChaCha20/ChaCha20-benchmark):
 
 - disabled:
 
@@ -30,19 +30,19 @@ Results on enabling/disabling intrinsics for AArch64 platform:
 
 - final results:
 
-| Benchmark | (dataSize) | Score | Error | Units |
-|--|--|--|--|--|
-| ChaCha20.CipherBench.ChaCha20Class.decrypt | 256   | 30055,928 | ± 24407,2   | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt | 1024  | 11407,667 | ± 2224,012  | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt | 4096  | 3500,356  | ± 1512,468  | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt | 16384 | 872,345   | ± 298,924   | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt | 256   | 24641,996 | ± 13788,048 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt | 1024  | 11012,121 | ± 1285,642  | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt | 4096  | 3136,44   | ± 205,518   | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt | 16384 | 808,788   | ± 158,948   | ops/s |
+| Benchmark | (dataSize) | Score difference (enabled score - disabled score) | Error (enabled error + disabled error) | % of score (score difference / enabled score * 100%) | Units |
+|--|--|--|--|--|--|
+| ChaCha20.CipherBench.ChaCha20Class.decrypt | 256   | +30055,928 | ± 24407,2   | 6.1796144% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt | 1024  | +11407,667 | ± 2224,012  | 7.6079997% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt | 4096  | +3500,356  | ± 1512,468  | 8.8404214% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt | 16384 | +872,345   | ± 298,924   | 8.7400622% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt | 256   | +24641,996 | ± 13788,048 | 5.1641861% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt | 1024  | +11012,121 | ± 1285,642  | 7.4241134% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt | 4096  | +3136,44   | ± 205,518   | 7.9401558% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt | 16384 | +808,788   | ± 158,948   | 8.1251484% | ops/s |
 
 
-### [Poly1305 jmh microbench](https://github.com/openjdk/jdk/blob/master/test/micro/org/openjdk/bench/javax/crypto/full/Poly1305DigestBench.java):
+### [Poly1305 jmh microbench](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/poly1305-benchmark):
 
 - disabled:
 
@@ -86,23 +86,23 @@ Results on enabling/disabling intrinsics for AArch64 platform:
 
 - final results:
 
-| Benchmark | (dataSize) | Score | Error | Units |
-|--|--|--|--|--|
-| Poly1305DigestBench.digestBuffer | 64      | +30210,17    | ± 86533,049  | ops/s |
-| Poly1305DigestBench.digestBuffer | 256     | +99866,728   | ± 194448,195 | ops/s |
-| Poly1305DigestBench.digestBuffer | 1024    | +109109,853  | ± 39046,511  | ops/s |
-| Poly1305DigestBench.digestBuffer | 16384   | +109109,853  | ± 2226,839   | ops/s |
-| Poly1305DigestBench.digestBuffer | 1048576 | +206,627     | ± 1582,938   | ops/s |
-| Poly1305DigestBench.digestBytes  | 64      | +23402,169   | ± 249656,009 | ops/s |
-| Poly1305DigestBench.digestBytes  | 256     | +107905,876  | ± 260607,775 | ops/s |
-| Poly1305DigestBench.digestBytes  | 1024    | +120493,73   | ± 85575,599  | ops/s |
-| Poly1305DigestBench.digestBytes  | 16384   | +15266,685   | ± 1241,128   | ops/s |
-| Poly1305DigestBench.digestBytes  | 1048576 | +213,978     | ± 1513,79    | ops/s |
-| Poly1305DigestBench.updateBytes  | 64      | +2572590,923 | ± 40898,491  | ops/s |
-| Poly1305DigestBench.updateBytes  | 256     | +932920,885  | ± 6759,88    | ops/s |
-| Poly1305DigestBench.updateBytes  | 1024    | +260870,08   | ± 3227,169   | ops/s |
-| Poly1305DigestBench.updateBytes  | 16384   | +17001,737   | ± 186,529    | ops/s |
-| Poly1305DigestBench.updateBytes  | 1048576 | +219,612     | ± 1345,424   | ops/s |
+| Benchmark | (dataSize) |  Score difference (enabled score - disabled score) | Error (enabled error + disabled error) | % of score (score difference / enabled score * 100%) | Units |
+|--|--|--|--|--|--|
+| Poly1305DigestBench.digestBuffer | 64      | +30210,17    | ± 86533,049  | 6.8909631%  | ops/s |
+| Poly1305DigestBench.digestBuffer | 256     | +99866,728   | ± 194448,195 | 26.0294655% | ops/s |
+| Poly1305DigestBench.digestBuffer | 1024    | +109109,853  | ± 39046,511  | 47.0311186% | ops/s |
+| Poly1305DigestBench.digestBuffer | 16384   | +14841,784   | ± 2226,839   | 59.1584722% | ops/s |
+| Poly1305DigestBench.digestBuffer | 1048576 | +206,627     | ± 1582,938   | 56.3106875% | ops/s |
+| Poly1305DigestBench.digestBytes  | 64      | +23402,169   | ± 249656,009 | 5.2804225%  | ops/s |
+| Poly1305DigestBench.digestBytes  | 256     | +107905,876  | ± 260607,775 | 27.03142%   | ops/s |
+| Poly1305DigestBench.digestBytes  | 1024    | +120493,73   | ± 85575,599  | 50.368031%  | ops/s |
+| Poly1305DigestBench.digestBytes  | 16384   | +15266,685   | ± 1241,128   | 61.1510453% | ops/s |
+| Poly1305DigestBench.digestBytes  | 1048576 | +213,978     | ± 1513,79    | 57.9790333% | ops/s |
+| Poly1305DigestBench.updateBytes  | 64      | +2572590,923 | ± 40898,491  | 54.2519507% | ops/s |
+| Poly1305DigestBench.updateBytes  | 256     | +932920,885  | ± 6759,88    | 60.6080793% | ops/s |
+| Poly1305DigestBench.updateBytes  | 1024    | +260870,08   | ± 3227,169   | 62.0685121% | ops/s |
+| Poly1305DigestBench.updateBytes  | 16384   | +17001,737   | ± 186,529    | 63.1030134% | ops/s |
+| Poly1305DigestBench.updateBytes  | 1048576 | +219,612     | ± 1345,424   | 58.2829755% | ops/s |
 
 all tests were run on:
 
