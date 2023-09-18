@@ -108,7 +108,7 @@ Intrinsic name: `_poly1305_processBlocks`
 | Poly1305DigestBench.updateBytes  | 16384   | +17001,737   | ± 186,529    | 63.1030134% | ops/s |
 | Poly1305DigestBench.updateBytes  | 1048576 | +219,612     | ± 1345,424   | 58.2829755% | ops/s |
 
-all tests were run on:
+All tests were run on:
 
 ```
 openjdk version "22-testing" 2024-03-19

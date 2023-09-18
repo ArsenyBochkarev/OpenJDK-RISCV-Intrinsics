@@ -262,7 +262,7 @@ Taken from runs of SPECJbb2015 and renaissance benchmarks suite.
      0 ( 0,0%) _updateBytesAdler32 (disabled)
 ```
 
-all tests were run on
+All tests were run on
 
 ```
 openjdk version "22" 2024-03-19

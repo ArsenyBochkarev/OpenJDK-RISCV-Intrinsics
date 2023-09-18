@@ -4,27 +4,27 @@ TODO: max-jOPS and critical-jOPS - ?
 
 ##### Absolute numbers
 
-| Configuration                                                           | max-jOPS | critical-jOPS |
-| ----------------------------------------------------------------------- | -------- | ------------- |
-| Default intrinsics set                                                  | 742      | 196           |
-| Without `_updateBytesAdler32` intrinsic                                 | 710      | 185           |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsic | 717      | 198           |
-| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                | 708      | 207           |
-| Without all[^all-meaning] intrinsics together                           | 717      | 193           |
+| Configuration                                                            | max-jOPS | critical-jOPS |
+| ------------------------------------------------------------------------ | -------- | ------------- |
+| Default intrinsics set                                                   | 742      | 196           |
+| Without `_updateBytesAdler32` intrinsic                                  | 710      | 185           |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics | 717      | 198           |
+| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 708      | 207           |
+| Without all[^all-meaning] intrinsics together                            | 717      | 193           |
 
 [^all-meaning]: by the word 'all' I mean *all unsupported in RISC-V platform crypto intrinsics which were used in this benchmark*. See [here]() for more details on which intrinsics were disabled on SPECjvm2015 benchmark : `_updateBytesAdler32`, `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`, `_updateCRC32`, `_updateBytesCRC32`.
 
 ##### % of performance
 
-| Configuration                                                           | max-jOPS    | critical-jOPS     |
-| ----------------------------------------------------------------------- | ----------- | ----------------- |
-| Default intrinsics set                                                  | 100%        | 100%              |
-| Without `_updateBytesAdler32` intrinsic                                 | 95,6873315% | 94,3877551%       |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsic | 96,6307278% | 101,0204082% (?!) |
-| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                | 95,4177898% | 105,6122449% (?!) |
-| Without all[^all-meaning] intrinsics together                           | 96,6307278% | 98,4693878%       |
+| Configuration                                                            | max-jOPS    | critical-jOPS     |
+| ------------------------------------------------------------------------ | ----------- | ----------------- |
+| Default intrinsics set                                                   | 100%        | 100%              |
+| Without `_updateBytesAdler32` intrinsic                                  | 95,6873315% | 94,3877551%       |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics | 96,6307278% | 101,0204082% (?!) |
+| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 95,4177898% | 105,6122449% (?!) |
+| Without all[^all-meaning] intrinsics together                            | 96,6307278% | 98,4693878%       |
 
-all benchmarks were run on
+All benchmarks were run on
 
 ```
 openjdk version "22-testing" 2024-03-19
