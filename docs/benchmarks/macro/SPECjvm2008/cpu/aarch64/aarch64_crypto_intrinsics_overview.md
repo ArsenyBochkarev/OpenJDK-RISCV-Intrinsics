@@ -8,6 +8,9 @@ List of disabled crypto intrinsics in `crypto` benchmarks (`crypto.aes`, `crypto
 - `_sha_implCompress` (`crypto.rsa`, `crypto.signverify`)
 - `_sha2_implCompress` (`crypto.signverify`)
 
+Enabled crypto intrinsics:
+- `_md5_implCompress` (`crypto.signverfiy`)
+
 All benchmarks were run on
 
 ```

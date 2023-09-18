@@ -1,29 +1,10 @@
-Overview of running SPECjvm2008 benchmark on board with aarch64 architecture.
+Overview of performance running SPECjvm2008 benchmark on board with aarch64 architecture.
 
-##### `crypto.aes` benchmark
-
-| Configuration                         | Score | Units |
-| ------------------------------------- | ----- | ----- |
-| With all intrinsics enabled           | 22.70 | ops/m |
-| Without AES group of intrinsics[^AES] | TODO | ops/m |
-
-[^AES]: `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`, `_cipherBlockChaining_encryptAESCrypt` and `_cipherBlockChaining_decryptAESCrypt`
-
-##### `crypto.rsa` benchmark
-
-| Configuration                                                            | Score  | Units |
-| ------------------------------------------------------------------------ | ------ | ----- |
-| With all intrinsics enabled                                              | 421.92 | ops/m |
-| Without `_sha_implCompress` intrinsic                                    | TODO   | ops/m |
-
-##### `crypto.signverify` benchmark
-
-| Configuration                                                            | Score  | Units |
-| ------------------------------------------------------------------------ | ------ | ----- |
-| With all intrinsics enabled                                              | 225.87 | ops/m |
-| Without `_sha_implCompress` intrinsic                                    | TODO   | ops/m |
-| Without `_sha2_implCompress`                                             | TODO   | ops/m |
-| Without `_sha_implCompress` and `_sha2_implCompress` intrinsic           | TODO   | ops/m |
+| Benchmark           | Score  | Units |
+| ------------------- | ------ | ----- |
+| `crypto.aes`        | 27.07  | ops/m |
+| `crypto.rsa`        | 236.59 | ops/m |
+| `crypto.signverify` | 421.12 | ops/m |
 
 All benchmarks were run on
 
@@ -33,7 +14,7 @@ OpenJDK Runtime Environment (fastdebug build 22-testing-builds.shipilev.net-open
 OpenJDK 64-Bit Server VM (fastdebug build 22-testing-builds.shipilev.net-openjdk-jdk-b552-20230909, mixed mode)
 ```
 
-with additional flags (where needed): `-XX:+UnlockDiagnosticVMOptions -XX:DisableIntrinsic=<intrinsic name>` and `--iterations 10`.
+with additional flags `--iterations 10`.
 
 Full test stand overview:
 
