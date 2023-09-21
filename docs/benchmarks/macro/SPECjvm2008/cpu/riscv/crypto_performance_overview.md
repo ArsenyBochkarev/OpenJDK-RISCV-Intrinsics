@@ -2,9 +2,9 @@ Overview of performance running SPECjvm2008 benchmark on board with RISC-V archi
 
 | Benchmark           | Score  | Units |
 | ------------------- | ------ | ----- |
-| `crypto.aes`        | TODO   | ops/m |
-| `crypto.rsa`        | TODO   | ops/m |
-| `crypto.signverify` | TODO   | ops/m |
+| `crypto.aes`        | 5.56   | ops/m |
+| `crypto.rsa`        | 139.36 | ops/m |
+| `crypto.signverify` | 59.94  | ops/m |
 
 All benchmarks were run on
 
