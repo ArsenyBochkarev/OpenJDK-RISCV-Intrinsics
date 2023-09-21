@@ -28,8 +28,8 @@ All benchmarks were run on
 
 ```
 openjdk version "22-testing" 2024-03-19
-OpenJDK Runtime Environment (fastdebug build 22-testing-builds.shipilev.net-openjdk-jdk-b552-20230909)
-OpenJDK 64-Bit Server VM (fastdebug build 22-testing-builds.shipilev.net-openjdk-jdk-b552-20230909, mixed mode)
+OpenJDK Runtime Environment (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915)
+OpenJDK 64-Bit Server VM (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915, mixed mode)
 ```
 
 with additional flags (where needed): `-XX:+UnlockDiagnosticVMOptions -XX:DisableIntrinsic=<intrinsic name>`.
