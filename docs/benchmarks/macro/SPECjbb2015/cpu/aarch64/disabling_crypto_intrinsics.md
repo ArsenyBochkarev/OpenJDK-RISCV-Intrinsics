@@ -1,6 +1,8 @@
 Overview of running SPECjbb2015 benchmark on board with aarch64 architecture.
 
-TODO: max-jOPS and critical-jOPS - ?
+Max-jOPS represents the maximum transaction throughput of a system until further requests fail, and critical-jOPS is an aggregate geomean transaction throughput within several levels of guaranteed response times.
+
+[Link for good explanation on it](https://www.anandtech.com/show/16315/the-ampere-altra-review/7#:~:text=That's%20a%20lot%20of%20technicalities,levels%20of%20guaranteed%20response%20times%2C).
 
 ##### Absolute numbers
 
@@ -32,7 +34,20 @@ OpenJDK Runtime Environment (build 22-testing-builds.shipilev.net-openjdk-jdk-b5
 OpenJDK 64-Bit Server VM (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915, mixed mode)
 ```
 
-with additional flags (where needed): `-XX:+UnlockDiagnosticVMOptions -XX:DisableIntrinsic=<intrinsic name>`.
+with additional flags (where needed): `-XX:+UseParallelGC -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=28 -XX:TargetSurvivorRatio=95 -XX:MaxTenuringThreshold=15 -Xms7500M -Xmx7500M -Xmn7G -XX:DisableIntrinsic=<intrinsic name>`.
+
+Flags overview:
+- `UseParallelGC`: Use ParallelGC as a garbage collector;
+- `-UseAdaptiveSizePolicy`: When it is turned on, changes heap generation sizes dynamically to meet the following goals sequentially:
+  - Latency Goal - Reduce application pauses below a desired level;
+  - Throughput Goal - Increase the ratio of application execution time over pause time above a desired level;
+  - Footprint Goal - Reduce the heap size as low as possible;
+- `SurvivorRatio`: The SurvivorRatio parameter controls the size of the two survivor spaces. For example, -XX:SurvivorRatio=6 sets the ratio between each survivor space and eden to be 1:6, each survivor space will be one eighth of the young generation;
+- `TargetSurvivorRatio`: Sets the maximum survivor space usage percentage;
+- `MaxTenuringThreshold`: MaxTenuringThreshold ensures that objects are not prematurely moved to the OldGen space. It specifies the upper age limit (tenuring threshold) after which the object would be copied (promoted) to old space;
+- `Xms`: The option to specify the minimum heap size;
+- `Xmx`: The option to specify the maximum heap size;
+- `Xmn`: the size of the heap for the young generation;
 
 Full test stand overview:
 
