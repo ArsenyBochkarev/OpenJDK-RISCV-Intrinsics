@@ -1,5 +1,7 @@
 ### Results for intrinsics test runs on riscv:
 
+#### Microbenchmarks
+
 - Intrinsic statistics on [ChaCha20 test](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/blob/main/benchmarks/ChaCha20/ChaCha20-benchmark/src/main/java/ChaCha20/CipherBench.java):
 
 ```
@@ -158,69 +160,71 @@ Full comparison for both cases:
 
 - ChaCha20:
 
-| intrinsic | aarch64 | riscv |
-|-----------|---------|-------|
-| `_hashCode` | worked | worked |
-| `_clone` | worked | worked |
-| `_min` | worked | worked |
-| `_max` | worked | worked |
-| `_identityHashCode` | worked | worked |
-| `_arraycopy` | worked | worked |
-| `_getCallerClass` | worked | worked |
-| `_equalsB` | worked | worked |
-| `_vectorizedHashCode` | disabled | disabled |
-| `_indexOfL` | worked | worked |
-| `_indexOfIL` | worked | worked |
-| `_indexOfL_char` | worked | worked |
-| `_equalsL` | worked | worked |
-| `_Preconditions_checkIndex` | worked | worked |
-| `_vectorizedMismatch` | disabled | disabled |
-| `_Reference_get` | worked | worked |
-| `_Reference_refersTo0` | worked | worked |
-| `_chacha20Block` | worked | **disabled** |
-| `_allocateInstance` | worked | worked |
-| `_isCompileConstant` | worked | worked |
-| `_getLong` | worked | worked |
-| `_putReferenceVolatile` | worked | worked |
-| `_getReferenceAcquire` | worked | worked |
-| `_putReferenceRelease` | worked | worked |
-| `_getLongUnaligned` | worked | **disabled** |
-| `_putIntUnaligned` | worked | **disabled** |
-| `_putLongUnaligned` | worked | **disabled** |
-| `_compareAndSetReference` | worked | worked |
-| `_compareAndSetInt` | worked | worked |
+| intrinsic                   | aarch64  | riscv        |
+| --------------------------- | -------- | ------------ |
+| `_hashCode`                 | worked   | worked       |
+| `_clone`                    | worked   | worked       |
+| `_min`                      | worked   | worked       |
+| `_max`                      | worked   | worked       |
+| `_identityHashCode`         | worked   | worked       |
+| `_arraycopy`                | worked   | worked       |
+| `_getCallerClass`           | worked   | worked       |
+| `_equalsB`                  | worked   | worked       |
+| `_vectorizedHashCode`       | disabled | disabled     |
+| `_indexOfL`                 | worked   | worked       |
+| `_indexOfIL`                | worked   | worked       |
+| `_indexOfL_char`            | worked   | worked       |
+| `_equalsL`                  | worked   | worked       |
+| `_Preconditions_checkIndex` | worked   | worked       |
+| `_vectorizedMismatch`       | disabled | disabled     |
+| `_Reference_get`            | worked   | worked       |
+| `_Reference_refersTo0`      | worked   | worked       |
+| `_chacha20Block`            | worked   | **disabled** |
+| `_allocateInstance`         | worked   | worked       |
+| `_isCompileConstant`        | worked   | worked       |
+| `_getLong`                  | worked   | worked       |
+| `_putReferenceVolatile`     | worked   | worked       |
+| `_getReferenceAcquire`      | worked   | worked       |
+| `_putReferenceRelease`      | worked   | worked       |
+| `_getLongUnaligned`         | worked   | **disabled** |
+| `_putIntUnaligned`          | worked   | **disabled** |
+| `_putLongUnaligned`         | worked   | **disabled** |
+| `_compareAndSetReference`   | worked   | worked       |
+| `_compareAndSetInt`         | worked   | worked       |
 
 - Poly1305:
 
-| intrinsic | aarch64 | riscv |
-|-----------|---------|-------|
-| `_clone` | worked | worked |
-| `_max` | worked | worked |
-| `_arraycopy` | worked | worked |
-| `_isPrimitive` | worked | worked |
-| `_Class_cast` | worked | worked |
-| `_vectorizedHashCode` | disabled | disabled |
-| `_equalsL` | worked | worked |
-| `_Preconditions_checkIndex` | worked | worked |
-| `_poly1305_processBlocks` | worked | **disabled** |
-| `_allocateUninitializedArray` | worked | worked |
-| `_isCompileConstant` | worked | worked |
-| `_getByte` | worked | worked |
-| `_getShort` | worked | worked |
-| `_getInt` | worked | worked |
-| `_getLong` | worked | worked |
-| `_putReferenceVolatile` | worked | worked |
-| `_getReferenceAcquire` | worked | worked |
-| `_getLongUnaligned` | worked | **disabled** |
-| `_compareAndSetReference` | worked | worked |
-| `_compareAndSetLong` | worked | worked |
-| `_compareAndSetInt` | worked | worked |
+| intrinsic                     | aarch64  | riscv        |
+| ----------------------------- | -------  | ------------ |
+| `_clone`                      | worked   | worked       |
+| `_max`                        | worked   | worked       |
+| `_arraycopy`                  | worked   | worked       |
+| `_isPrimitive`                | worked   | worked       |
+| `_Class_cast`                 | worked   | worked       |
+| `_vectorizedHashCode`         | disabled | disabled     |
+| `_equalsL`                    | worked   | worked       |
+| `_Preconditions_checkIndex`   | worked   | worked       |
+| `_poly1305_processBlocks`     | worked   | **disabled** |
+| `_allocateUninitializedArray` | worked   | worked       |
+| `_isCompileConstant`          | worked   | worked       |
+| `_getByte`                    | worked   | worked       |
+| `_getShort`                   | worked   | worked       |
+| `_getInt`                     | worked   | worked       |
+| `_getLong`                    | worked   | worked       |
+| `_putReferenceVolatile`       | worked   | worked       |
+| `_getReferenceAcquire`        | worked   | worked       |
+| `_getLongUnaligned`           | worked   | **disabled** |
+| `_compareAndSetReference`     | worked   | worked       |
+| `_compareAndSetLong`          | worked   | worked       |
+| `_compareAndSetInt`           | worked   | worked       |
 
 ----------------------------------------------------------------------------------------------------
 
+#### Macrobenchmarks
+
 Taken from runs of SPECJbb2015 and renaissance benchmarks suite.
 
-1.Bit manipulation (can be turned on with bitmanip extension):
+1. Bit manipulation (can be turned on with bitmanip extension):
 
 ```
      0 ( 0,0%) _numberOfLeadingZeros_i (disabled) ## requires UseZbb on riscv
@@ -229,13 +233,13 @@ Taken from runs of SPECJbb2015 and renaissance benchmarks suite.
      0 ( 0,0%) _bitCount_i (disabled) ## requires UsePopCountInstruction on riscv
 ```
 
-2.SpinWait (requires special VM version)
+2. SpinWait (requires special VM version)
 
 ```
      0 ( 0,0%) _onSpinWait (disabled) ## Requires VM_Version::supports_on_spin_wait() == true on all platforms
 ```
 
-3.Require vector extension
+3. Require vector extension
 
 ```
      0 ( 0,0%) _vectorizedHashCode (disabled) ## available only on x86
@@ -243,7 +247,7 @@ Taken from runs of SPECJbb2015 and renaissance benchmarks suite.
      0 ( 0,0%) _vectorizedMismatch (disabled) ## c1_LIRGenerator_riscv.cpp::803 not implemented on riscv
 ```
 
-4.Unaligned access
+4. Unaligned access
 
 ```
      0 ( 0,0%) _getShortUnaligned (disabled) ## Unaligned access
@@ -251,7 +255,7 @@ Taken from runs of SPECJbb2015 and renaissance benchmarks suite.
      0 ( 0,0%) _getLongUnaligned (disabled) ## Unaligned access
 ```
 
-5.Cryptography and control sums
+5. Cryptography and control sums
 
 ```
      0 ( 0,0%) _encodeAsciiArray (disabled)
