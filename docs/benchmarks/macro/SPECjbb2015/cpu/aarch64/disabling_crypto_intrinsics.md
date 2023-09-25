@@ -12,7 +12,7 @@ TODO: max-jOPS and critical-jOPS - ?
 | Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 708      | 207           |
 | Without all[^all-meaning] intrinsics together                            | 717      | 193           |
 
-[^all-meaning]: by the word 'all' I mean *all unsupported in RISC-V platform crypto intrinsics which were used in this benchmark*. See [here]() for more details on which intrinsics were disabled on SPECjvm2015 benchmark : `_updateBytesAdler32`, `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`, `_updateCRC32`, `_updateBytesCRC32`.
+[^all-meaning]: by the word 'all' I mean *all unsupported in RISC-V platform crypto intrinsics which were used in this benchmark*. See [here](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/blob/main/docs/riscv_intrinsics_overview.md) for more details on which intrinsics were disabled on SPECjbb2015 benchmark : `_updateBytesAdler32`, `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`, `_updateCRC32`, `_updateBytesCRC32`.
 
 ##### % of performance
 
