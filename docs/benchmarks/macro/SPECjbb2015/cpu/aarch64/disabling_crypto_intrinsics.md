@@ -8,11 +8,11 @@ Max-jOPS represents the maximum transaction throughput of a system until further
 
 | Configuration                                                            | max-jOPS | critical-jOPS |
 | ------------------------------------------------------------------------ | -------- | ------------- |
-| Default intrinsics set                                                   | 742      | 196           |
-| Without `_updateBytesAdler32` intrinsic                                  | 710      | 185           |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics | 717      | 198           |
-| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 708      | 207           |
-| Without all[^all-meaning] intrinsics together                            | 717      | 193           |
+| Default intrinsics set                                                   | 1111     | 268           |
+| Without `_updateBytesAdler32` intrinsic                                  | 1088     | 270           |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics | 1071     | 269           |
+| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 1062     | 271           |
+| Without all[^all-meaning] intrinsics together                            | 1052     | 265           |
 
 [^all-meaning]: by the word 'all' I mean *all unsupported in RISC-V platform crypto intrinsics which were used in this benchmark*. See [here](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/blob/main/docs/riscv_intrinsics_overview.md) for more details on which intrinsics were disabled on SPECjbb2015 benchmark : `_updateBytesAdler32`, `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`, `_updateCRC32`, `_updateBytesCRC32`.
 
@@ -21,10 +21,10 @@ Max-jOPS represents the maximum transaction throughput of a system until further
 | Configuration                                                            | max-jOPS    | critical-jOPS     |
 | ------------------------------------------------------------------------ | ----------- | ----------------- |
 | Default intrinsics set                                                   | 100%        | 100%              |
-| Without `_updateBytesAdler32` intrinsic                                  | 95,6873315% | 94,3877551%       |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics | 96,6307278% | 101,0204082% (?!) |
-| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 95,4177898% | 105,6122449% (?!) |
-| Without all[^all-meaning] intrinsics together                            | 96,6307278% | 98,4693878%       |
+| Without `_updateBytesAdler32` intrinsic                                  | 97.929793%  | 100.7462687%      |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics | 96.39964%   | 100.3731343%      |
+| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 95.58956%   | 101.119403%       |
+| Without all[^all-meaning] intrinsics together                            | 94.6894689% | 98.880597%        |
 
 All benchmarks were run on
 
@@ -34,7 +34,7 @@ OpenJDK Runtime Environment (build 22-testing-builds.shipilev.net-openjdk-jdk-b5
 OpenJDK 64-Bit Server VM (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915, mixed mode)
 ```
 
-with additional flags (where needed): `-XX:+UseParallelGC -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=28 -XX:TargetSurvivorRatio=95 -XX:MaxTenuringThreshold=15 -Xms7500M -Xmx7500M -Xmn7G -XX:DisableIntrinsic=<intrinsic name>`.
+with additional flags (where needed): `-XX:+UseParallelGC -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=28 -XX:TargetSurvivorRatio=95 -XX:MaxTenuringThreshold=15 -Xms6G -Xmx6G -Xmn5500M -XX:DisableIntrinsic=<intrinsic name>`.
 
 Flags overview:
 - `UseParallelGC`: Use ParallelGC as a garbage collector;
