@@ -1,4 +1,4 @@
-package ChaCha20;
+package ChaCha20Poly1305;
 
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
