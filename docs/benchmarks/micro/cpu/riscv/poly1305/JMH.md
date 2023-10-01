@@ -1,4 +1,4 @@
-Output for [poly1305 microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/poly1305-benchmark) on RISC-V cpu:
+Output for [poly1305 microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/Poly1305) on RISC-V cpu:
 
 | Benchmark                        | (dataSize) | (provider) | Mode  | Cnt |       Score |  Error    | Units |
 | -------------------------------- | ---------- | ---------- | ----- | --- | ----------- | --------- | ----- |
