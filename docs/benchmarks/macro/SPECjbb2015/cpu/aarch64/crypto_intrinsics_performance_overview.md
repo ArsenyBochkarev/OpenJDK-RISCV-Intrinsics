@@ -1,28 +1,6 @@
-Overview of crypto intrinsics performance for SPECjbb2015 benchmark on board with aarch64 architecture.
+Overview of crypto intrinsics performance on SPECjbb2015 macrobenchmark.
 
-Max-jOPS represents the maximum transaction throughput of a system until further requests fail, and critical-jOPS is an aggregate geomean transaction throughput within several levels of guaranteed response times.
-
-[Link for good explanation on it](https://www.anandtech.com/show/16315/the-ampere-altra-review/7#:~:text=That's%20a%20lot%20of%20technicalities,levels%20of%20guaranteed%20response%20times%2C).
-
-##### Absolute numbers
-
-| Configuration                                                            | max-jOPS | critical-jOPS |
-| ------------------------------------------------------------------------ | -------- | ------------- |
-| Default intrinsics set                                                   | 543      | 169           |
-| Without `_updateBytesAdler32` intrinsic                                  | 548      | 157           |
-| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 559      | 159           |
-| Without all[^all-meaning] intrinsics together                            | 571      | 163           |
-
-[^all-meaning]: by the word 'all' I mean *all unsupported in RISC-V platform crypto intrinsics which were used in this benchmark*. See [here](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/blob/main/docs/riscv_intrinsics_overview.md) for more details on which intrinsics were disabled on SPECjbb2015 benchmark: `_updateBytesAdler32`, `_updateCRC32`, `_updateBytesCRC32`.
-
-##### % of performance
-
-| Configuration                                                            | max-jOPS    | critical-jOPS     |
-| ------------------------------------------------------------------------ | ----------- | ----------------- |
-| Default intrinsics set                                                   | 100%        | 100%              |
-| Without `_updateBytesAdler32` intrinsic                                  | 97.929793%  | 100.7462687%      |
-| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 95.58956%   | 101.119403%       |
-| Without all[^all-meaning] intrinsics together                            | 94.6894689% | 98.880597%        |
+It seems to me that crypto intrinsics have no somewhat significant importance on SPECjbb2015 macrobenchmark performance. Despite being used, their influence is very small: the max-jOPS metric showed the lowest score of 543 with **enabled** crypto intrinsics. 
 
 All benchmarks were run on
 
