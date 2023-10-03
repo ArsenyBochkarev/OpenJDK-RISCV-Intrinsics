@@ -114,7 +114,7 @@ Serial          : 1000000089722afc
 Model           : Raspberry Pi 4 Model B Rev 1.4
 ```
 
-Due to Raspberry Pi 4 overheating issues, the CPU frequency was set to minimum:
+Due to Raspberry Pi 4 overheating issues, the CPU frequency was set to minimum (600 Mhz):
 
 ```
 $ cpufreq-info
