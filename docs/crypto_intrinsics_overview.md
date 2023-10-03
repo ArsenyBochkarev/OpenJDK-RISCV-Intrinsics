@@ -1,11 +1,10 @@
-### Results for intrinsics test runs on riscv:
+### Results for intrinsics test runs on RISC-V architecture
 
 #### Microbenchmarks
 
-- Intrinsic statistics on [ChaCha20 test](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/blob/main/benchmarks/ChaCha20/ChaCha20-benchmark/src/main/java/ChaCha20/CipherBench.java):
+- Intrinsic statistics on [ChaCha20 test](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/ChaCha20):
 
 ```
-<statistics type='intrinsic'>
 Compiler intrinsic usage:
      1 ( 0,6%) _hashCode (worked,virtual)
     14 ( 8,0%) _clone (worked)
@@ -39,13 +38,11 @@ Compiler intrinsic usage:
      1 ( 0,6%) _compareAndSetReference (worked)
      1 ( 0,6%) _compareAndSetInt (worked)
    174 (100,0%) total (worked,disabled,virtual)
-</statistics>
 ```
 
-- Intrinsic statistics on [Poly1305 test](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/blob/main/benchmarks/poly1305-benchmark/src/main/java/com/poly1305/Poly1305DigestBench.java):
+- Intrinsic statistics on [Poly1305 test](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/Poly1305):
 
 ```
-<statistics type='intrinsic'>
 Compiler intrinsic usage:
      1 ( 0,4%) _clone (worked)
      4 ( 1,8%) _min (worked)
@@ -70,21 +67,65 @@ Compiler intrinsic usage:
      5 ( 2,2%) _compareAndSetLong (worked)
      2 ( 0,9%) _compareAndSetInt (worked)
    224 (100,0%) total (worked,disabled)
-</statistics>
 ```
 
-both tests were run for
+- Intrinsic statistics on [Adler32 test]():
+```
+Compiler intrinsic usage:
+     2 ( 5,4%) _clone (worked)
+     5 (13,5%) _min (worked)
+     2 ( 5,4%) _max (worked)
+     3 ( 8,1%) _nanoTime (worked)
+     4 (10,8%) _arraycopy (worked)
+     1 ( 2,7%) _isPrimitive (worked)
+     0 ( 0,0%) _vectorizedHashCode (disabled)
+     2 ( 5,4%) _equalsL (worked)
+     7 (18,9%) _Preconditions_checkIndex (worked)
+     0 ( 0,0%) _updateBytesAdler32 (disabled)
+     1 ( 2,7%) _allocateUninitializedArray (worked)
+     1 ( 2,7%) _putReferenceVolatile (worked)
+     1 ( 2,7%) _getReferenceAcquire (worked)
+     1 ( 2,7%) _compareAndSetReference (worked)
+     5 (13,5%) _compareAndSetLong (worked)
+     2 ( 5,4%) _compareAndSetInt (worked)
+    37 (100,0%) total (worked,disabled)
+```
+
+- Intrinsic statistics on [CRC32 test]():
+```
+Compiler intrinsic usage:
+     2 ( 4,2%) _clone (worked)
+     4 ( 8,3%) _min (worked)
+     2 ( 4,2%) _max (worked)
+     3 ( 6,2%) _nanoTime (worked)
+     3 ( 6,2%) _arraycopy (worked)
+     1 ( 2,1%) _isPrimitive (worked)
+     0 ( 0,0%) _vectorizedHashCode (disabled)
+     2 ( 4,2%) _equalsL (worked)
+    21 (43,8%) _Preconditions_checkIndex (worked)
+     0 ( 0,0%) _updateBytesCRC32 (disabled)
+     1 ( 2,1%) _allocateUninitializedArray (worked)
+     1 ( 2,1%) _putReferenceVolatile (worked)
+     1 ( 2,1%) _getReferenceAcquire (worked)
+     1 ( 2,1%) _compareAndSetReference (worked)
+     4 ( 8,3%) _compareAndSetLong (worked)
+     2 ( 4,2%) _compareAndSetInt (worked)
+    48 (100,0%) total (worked,disabled)
+```
+
+all tests were run for
 
 ```
 openjdk version "22" 2024-03-19
+OpenJDK Runtime Environment SyntaJ-22+9-b070923-fastdebug (fastdebug build 22+9-EA)
+OpenJDK 64-Bit Server VM SyntaJ-22+9-b070923-fastdebug (fastdebug build 22+9-EA, mixed mode)
 ```
 
-### Results for intrinsics test runs on aarch64:
+### Results for intrinsics test runs on AArch64 architecture
 
-- ChaCha20 test statistics for intrinsics
+- Intrinsic statistics on [ChaCha20 test](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/ChaCha20):
 
 ```
-<statistics type='intrinsic'>
 Compiler intrinsic usage:
      1 ( 0.5%) _hashCode (worked,virtual)
     14 ( 7.7%) _clone (worked)
@@ -116,10 +157,9 @@ Compiler intrinsic usage:
      1 ( 0.5%) _compareAndSetReference (worked)
      1 ( 0.5%) _compareAndSetInt (worked)
    183 (100.0%) total (worked,disabled,virtual)
-</statistics>
 ```
 
-- Poly1305 test statistics for intrinsics:
+- Intrinsic statistics on [Poly1305 test](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/Poly1305):
 
 ```
 Compiler intrinsic usage:
@@ -148,7 +188,49 @@ Compiler intrinsic usage:
     85 (100.0%) total (worked,disabled)
 ```
 
-both tests were run on
+
+- Intrinsic statistics on [Adler32 test]():
+
+```
+Compiler intrinsic usage:
+     1 ( 3.6%) _clone (worked)
+     3 (10.7%) _min (worked)
+     1 ( 3.6%) _max (worked)
+     3 (10.7%) _nanoTime (worked)
+     2 ( 7.1%) _arraycopy (worked)
+     0 ( 0.0%) _vectorizedHashCode (disabled)
+     1 ( 3.6%) _equalsL (worked)
+     2 ( 7.1%) _Preconditions_checkIndex (worked)
+     6 (21.4%) _updateBytesAdler32 (worked)
+     1 ( 3.6%) _putReferenceVolatile (worked)
+     1 ( 3.6%) _getReferenceAcquire (worked)
+     1 ( 3.6%) _compareAndSetReference (worked)
+     4 (14.3%) _compareAndSetLong (worked)
+     2 ( 7.1%) _compareAndSetInt (worked)
+    28 (100.0%) total (worked,disabled)
+```
+
+- Intrinsic statistics on [CRC32 test]():
+```
+Compiler intrinsic usage:
+     1 ( 2.3%) _clone (worked)
+     4 ( 9.1%) _min (worked)
+     1 ( 2.3%) _max (worked)
+     3 ( 6.8%) _nanoTime (worked)
+     2 ( 4.5%) _arraycopy (worked)
+     0 ( 0.0%) _vectorizedHashCode (disabled)
+     1 ( 2.3%) _equalsL (worked)
+    16 (36.4%) _Preconditions_checkIndex (worked)
+     6 (13.6%) _updateBytesCRC32 (worked)
+     1 ( 2.3%) _putReferenceVolatile (worked)
+     1 ( 2.3%) _getReferenceAcquire (worked)
+     1 ( 2.3%) _compareAndSetReference (worked)
+     5 (11.4%) _compareAndSetLong (worked)
+     2 ( 4.5%) _compareAndSetInt (worked)
+    44 (100.0%) total (worked,disabled)
+```
+
+all tests were run on
 
 ```
 openjdk version "22-testing" 2024-03-19
@@ -156,7 +238,7 @@ OpenJDK Runtime Environment (fastdebug build 22-testing-builds.shipilev.net-open
 OpenJDK 64-Bit Server VM (fastdebug build 22-testing-builds.shipilev.net-openjdk-jdk-b552-20230909, mixed mode)
 ```
 
-Full comparison for both cases:
+### Intrinsics statistics comparison
 
 - ChaCha20:
 
@@ -218,11 +300,49 @@ Full comparison for both cases:
 | `_compareAndSetLong`          | worked   | worked       |
 | `_compareAndSetInt`           | worked   | worked       |
 
+- Adler32:
+
+| intrinsic                   | aarch64  | riscv        |
+| --------------------------- | -------  | ------------ |
+| `_clone`                    | worked   | worked       |
+| `_min`                      | worked   | worked       |
+| `_max`                      | worked   | worked       |
+| `_nanoTime`                 | worked   | worked       |
+| `_arraycopy`                | worked   | worked       |
+| `_vectorizedHashCode`       | disabled | disabled     |
+| _`equalsL`                  | worked   | worked       |
+| _`Preconditions_checkIndex` | worked   | worked       |
+| `_updateBytesAdler32`       | worked   | **disabled** |
+| `_putReferenceVolatile`     | worked   | worked       |
+| `_getReferenceAcquire`      | worked   | worked       |
+| `_compareAndSetReference`   | worked   | worked       |
+| `_compareAndSetLong`        | worked   | worked       |
+| `_compareAndSetInt`         | worked   | worked       |
+
+- CRC32:
+
+| intrinsic                   | aarch64  | riscv        |
+| --------------------------- | -------  | ------------ |
+| `_clone`                    | worked   | worked       |
+| `_min`                      | worked   | worked       |
+| `_max`                      | worked   | worked       |
+| `_nanoTime`                 | worked   | worked       |
+| `_arraycopy`                | worked   | worked       |
+| `_vectorizedHashCode`       | disabled | disabled     |
+| `_equalsL`                  | worked   | worked       |
+| `_Preconditions_checkIndex` | worked   | worked       |
+| `_updateBytesCRC32`         | worked   | **disabled** |
+| `_putReferenceVolatile`     | worked   | worked       |
+| `_getReferenceAcquire`      | worked   | worked       |
+| `_compareAndSetReference`   | worked   | worked       |
+| `_compareAndSetLong`        | worked   | worked       |
+| `_compareAndSetInt`         | worked   | worked       |
+
 ----------------------------------------------------------------------------------------------------
 
 #### Macrobenchmarks
 
-Taken from runs of SPECJbb2015 and renaissance benchmarks suite.
+Taken from runs of SPECJbb2015 and Renaissance benchmarks (finagle-http, philosophers) suite.
 
 1. Bit manipulation (can be turned on with bitmanip extension):
 
