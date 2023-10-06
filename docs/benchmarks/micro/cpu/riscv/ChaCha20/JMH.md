@@ -1,4 +1,4 @@
-Output for [poly1305 microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/ChaCha20) on RISC-V cpu:
+Output for [ChaCha20 microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/ChaCha20) on RISC-V cpu:
 
 | Benchmark                                  |  (dataSize) | (keyLength) | (mode) | (padding) | (permutation) |  (provider) |  Mode  | Cnt |      Score |  Error   |  Units |
 | ------------------------------------------ | ----------- | ----------- | ------ | --------- | ------------- | ----------- | ------ | --- | ---------- | -------- | ------ |
