@@ -1,4 +1,4 @@
-Overview of crypto intrinsics performance for SPECjbb2015 benchmark on board with aarch64 architecture.
+Overview of crypto intrinsics performance for SPECjbb2015 benchmark on two boards with aarch64 architecture.
 
 Max-jOPS represents the maximum transaction throughput of a system until further requests fail, and critical-jOPS is an aggregate geomean transaction throughput within several levels of guaranteed response times.
 
@@ -6,23 +6,146 @@ Max-jOPS represents the maximum transaction throughput of a system until further
 
 ##### Absolute numbers
 
-| Configuration                                                            | max-jOPS | critical-jOPS |
-| ------------------------------------------------------------------------ | -------- | ------------- |
-| Default intrinsics set                                                   | 543      | 169           |
-| Without `_updateBytesAdler32` intrinsic                                  | 548      | 157           |
-| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 559      | 159           |
-| Without all[^all-meaning] intrinsics together                            | 571      | 163           |
-
-[^all-meaning]: by the word 'all' I mean *all unsupported in RISC-V platform crypto intrinsics which were used in this benchmark*. See [here](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/blob/main/docs/riscv_intrinsics_overview.md) for more details on which intrinsics were disabled on SPECjbb2015 benchmark: `_updateBytesAdler32`, `_updateCRC32`, `_updateBytesCRC32`.
+| Configuration                                                                             | max-jOPS | critical-jOPS |
+| ----------------------------------------------------------------------------------------- | -------- | ------------- |
+| Default intrinsics set                                                                    | 4665     | 1602          |
+| Without `_updateBytesAdler32` intrinsic                                                   | 4732     | 1682          |
+| Without `_updateBytesCRC32` intrinsic                                                     | 4946     | 1663          |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                  | 4665     | 1638          |
+| Without `_cipherBlockChaining_encryptAESCrypt` and `_cipherBlockChaining_decryptAESCrypt` | 4834     | 1591          |
 
 ##### % of performance
 
-| Configuration                                                            | max-jOPS    | critical-jOPS     |
-| ------------------------------------------------------------------------ | ----------- | ----------------- |
-| Default intrinsics set                                                   | 100%        | 100%              |
-| Without `_updateBytesAdler32` intrinsic                                  | 97.929793%  | 100.7462687%      |
-| Without `_updateCRC32` and `_updateBytesCRC32` intrinsic                 | 95.58956%   | 101.119403%       |
-| Without all[^all-meaning] intrinsics together                            | 94.6894689% | 98.880597%        |
+| Configuration                                                                             | max-jOPS     | critical-jOPS     |
+| ----------------------------------------------------------------------------------------- | ------------ | ----------------- |
+| Default intrinsics set                                                                    | 100%         | 100%              |
+| Without `_updateBytesAdler32` intrinsic                                                   | 101.4362272% | 104.9937578%      |
+| Without `_updateBytesCRC32` intrinsic                                                     | 106.0235798% | 103.8077403%      |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                  | 100%         | 102.247191%       |
+| Without `_cipherBlockChaining_encryptAESCrypt` and `_cipherBlockChaining_decryptAESCrypt` | 103.6227224% | 99.3133583%       |
+
+
+##### Test stand overview
+
+```
+$ uname -a
+Linux rock-5b 5.10.110-34-rockchip-gca15bbe36e6c #rockchip SMP Wed Dec 7 06:54:05 UTC 2022 aarch64 aarch64 aarch64 GNU/Linux
+```
+
+```
+$ lscpu
+Architecture:                    aarch64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+CPU(s):                          8
+On-line CPU(s) list:             0-7
+Thread(s) per core:              1
+Core(s) per socket:              2
+Socket(s):                       3
+Vendor ID:                       ARM
+Model:                           0
+Model name:                      Cortex-A55
+Stepping:                        r2p0
+CPU max MHz:                     2400.0000
+CPU min MHz:                     408.0000
+BogoMIPS:                        48.00
+L1d cache:                       256 KiB
+L1i cache:                       256 KiB
+L2 cache:                        1 MiB
+L3 cache:                        3 MiB
+Vulnerability Itlb multihit:     Not affected
+Vulnerability L1tf:              Not affected
+Vulnerability Mds:               Not affected
+Vulnerability Meltdown:          Not affected
+Vulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled v
+                                 ia prctl
+Vulnerability Spectre v1:        Mitigation; __user pointer sanitization
+Vulnerability Spectre v2:        Vulnerable: Unprivileged eBPF enabled
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fp asimd evtstrm aes pmull sha1 sha2 crc32 atom
+                                 ics fphp asimdhp cpuid asimdrdm lrcpc dcpop asi
+                                 mddp
+```
+
+```
+$ cat /proc/cpuinfo
+processor	: 0
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 1
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 2
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 3
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 4
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x4
+CPU part	: 0xd0b
+CPU revision	: 0
+
+processor	: 5
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x4
+CPU part	: 0xd0b
+CPU revision	: 0
+
+processor	: 6
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x4
+CPU part	: 0xd0b
+CPU revision	: 0
+
+processor	: 7
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x4
+CPU part	: 0xd0b
+CPU revision	: 0
+
+Serial		: 1fa0bc2c51185a02
+```
+
+#### Runs evaluation
 
 All benchmarks were run on
 
@@ -46,152 +169,3 @@ Flags overview:
 - `Xms`: The option to specify the minimum heap size;
 - `Xmx`: The option to specify the maximum heap size;
 - `Xmn`: the size of the heap for the young generation;
-
-Full test stand overview:
-
-```
-$ uname -a
-Linux raspbpi4 5.15.0-1012-raspi #14-Ubuntu SMP PREEMPT Fri Jun 24 13:10:28 UTC 2022 aarch64 aarch64 aarch64 GNU/Linux
-```
-
-```
-$ lscpu
-Architecture:            aarch64
-  CPU op-mode(s):        32-bit, 64-bit
-  Byte Order:            Little Endian
-CPU(s):                  4
-  On-line CPU(s) list:   0-3
-Vendor ID:               ARM
-  Model name:            Cortex-A72
-    Model:               3
-    Thread(s) per core:  1
-    Core(s) per cluster: 4
-    Socket(s):           -
-    Cluster(s):          1
-    Stepping:            r0p3
-    CPU max MHz:         1500.0000
-    CPU min MHz:         600.0000
-    BogoMIPS:            108.00
-    Flags:               fp asimd evtstrm crc32 cpuid
-Caches (sum of all):     
-  L1d:                   128 KiB (4 instances)
-  L1i:                   192 KiB (4 instances)
-  L2:                    1 MiB (1 instance)
-Vulnerabilities:         
-  Gather data sampling:  Not affected
-  Itlb multihit:         Not affected
-  L1tf:                  Not affected
-  Mds:                   Not affected
-  Meltdown:              Not affected
-  Mmio stale data:       Not affected
-  Retbleed:              Not affected
-  Spec store bypass:     Vulnerable
-  Spectre v1:            Mitigation; __user pointer sanitization
-  Spectre v2:            Vulnerable
-  Srbds:                 Not affected
-  Tsx async abort:       Not affected
-```
-
-```
-$ cat /proc/cpuinfo
-processor       : 0
-BogoMIPS        : 108.00
-Features        : fp asimd evtstrm crc32 cpuid
-CPU implementer : 0x41
-CPU architecture: 8
-CPU variant     : 0x0
-CPU part        : 0xd08
-CPU revision    : 3
-
-processor       : 1
-BogoMIPS        : 108.00
-Features        : fp asimd evtstrm crc32 cpuid
-CPU implementer : 0x41
-CPU architecture: 8
-CPU variant     : 0x0
-CPU part        : 0xd08
-CPU revision    : 3
-
-processor       : 2
-BogoMIPS        : 108.00
-Features        : fp asimd evtstrm crc32 cpuid
-CPU implementer : 0x41
-CPU architecture: 8
-CPU variant     : 0x0
-CPU part        : 0xd08
-CPU revision    : 3
-
-processor       : 3
-BogoMIPS        : 108.00
-Features        : fp asimd evtstrm crc32 cpuid
-CPU implementer : 0x41
-CPU architecture: 8
-CPU variant     : 0x0
-CPU part        : 0xd08
-CPU revision    : 3
-
-Hardware        : BCM2835
-Revision        : d03114
-Serial          : 1000000089722afc
-Model           : Raspberry Pi 4 Model B Rev 1.4
-```
-
-Due to Raspberry Pi 4 overheating issues, the CPU frequency was set to minimum:
-
-```
-$ cpufreq-info
-cpufrequtils 008: cpufreq-info (C) Dominik Brodowski 2004-2009
-Report errors and bugs to cpufreq@vger.kernel.org, please.
-analyzing CPU 0:
-  driver: cpufreq-dt
-  CPUs which run at the same hardware frequency: 0 1 2 3
-  CPUs which need to have their frequency coordinated by software: 0 1 2 3
-  maximum transition latency: 0.97 ms.
-  hardware limits: 600 MHz - 1.50 GHz
-  available frequency steps: 600 MHz, 700 MHz, 800 MHz, 900 MHz, 1000 MHz, 1.10 GHz, 1.20 GHz, 1.30 GHz, 1.40 GHz, 1.50 GHz
-  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
-  current policy: frequency should be within 600 MHz and 600 MHz.
-                  The governor "ondemand" may decide which speed to use
-                  within this range.
-  current CPU frequency is 600 MHz.
-  cpufreq stats: 600 MHz:71.29%, 700 MHz:3.89%, 800 MHz:1.34%, 900 MHz:0.85%, 1000 MHz:0.78%, 1.10 GHz:0.58%, 1.20 GHz:0.42%, 1.30 GHz:0.39%, 1.40 GHz:0.28%, 1.50 GHz:20.18%  (1976771)
-analyzing CPU 1:
-  driver: cpufreq-dt
-  CPUs which run at the same hardware frequency: 0 1 2 3
-  CPUs which need to have their frequency coordinated by software: 0 1 2 3
-  maximum transition latency: 0.97 ms.
-  hardware limits: 600 MHz - 1.50 GHz
-  available frequency steps: 600 MHz, 700 MHz, 800 MHz, 900 MHz, 1000 MHz, 1.10 GHz, 1.20 GHz, 1.30 GHz, 1.40 GHz, 1.50 GHz
-  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
-  current policy: frequency should be within 600 MHz and 600 MHz.
-                  The governor "ondemand" may decide which speed to use
-                  within this range.
-  current CPU frequency is 600 MHz.
-  cpufreq stats: 600 MHz:71.29%, 700 MHz:3.89%, 800 MHz:1.34%, 900 MHz:0.85%, 1000 MHz:0.78%, 1.10 GHz:0.58%, 1.20 GHz:0.42%, 1.30 GHz:0.39%, 1.40 GHz:0.28%, 1.50 GHz:20.18%  (1976771)
-analyzing CPU 2:
-  driver: cpufreq-dt
-  CPUs which run at the same hardware frequency: 0 1 2 3
-  CPUs which need to have their frequency coordinated by software: 0 1 2 3
-  maximum transition latency: 0.97 ms.
-  hardware limits: 600 MHz - 1.50 GHz
-  available frequency steps: 600 MHz, 700 MHz, 800 MHz, 900 MHz, 1000 MHz, 1.10 GHz, 1.20 GHz, 1.30 GHz, 1.40 GHz, 1.50 GHz
-  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
-  current policy: frequency should be within 600 MHz and 600 MHz.
-                  The governor "ondemand" may decide which speed to use
-                  within this range.
-  current CPU frequency is 600 MHz.
-  cpufreq stats: 600 MHz:71.29%, 700 MHz:3.89%, 800 MHz:1.34%, 900 MHz:0.85%, 1000 MHz:0.78%, 1.10 GHz:0.58%, 1.20 GHz:0.42%, 1.30 GHz:0.39%, 1.40 GHz:0.28%, 1.50 GHz:20.18%  (1976771)
-analyzing CPU 3:
-  driver: cpufreq-dt
-  CPUs which run at the same hardware frequency: 0 1 2 3
-  CPUs which need to have their frequency coordinated by software: 0 1 2 3
-  maximum transition latency: 0.97 ms.
-  hardware limits: 600 MHz - 1.50 GHz
-  available frequency steps: 600 MHz, 700 MHz, 800 MHz, 900 MHz, 1000 MHz, 1.10 GHz, 1.20 GHz, 1.30 GHz, 1.40 GHz, 1.50 GHz
-  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
-  current policy: frequency should be within 600 MHz and 600 MHz.
-                  The governor "ondemand" may decide which speed to use
-                  within this range.
-  current CPU frequency is 600 MHz.
-  cpufreq stats: 600 MHz:71.29%, 700 MHz:3.89%, 800 MHz:1.34%, 900 MHz:0.85%, 1000 MHz:0.78%, 1.10 GHz:0.58%, 1.20 GHz:0.42%, 1.30 GHz:0.39%, 1.40 GHz:0.28%, 1.50 GHz:20.18%  (1976771)
-```
