@@ -210,6 +210,99 @@ Intrinsic name: `_updateBytesCRC32`.
 
 Average % of score: 95.5684467%.
 
+### [AES microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/AES)
+
+Intrinsics name: `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`.
+
+- Both disabled:
+
+| Benchmark            |          (algorithm) | (dataSize) | (keyLength) | (provider) | Mode  | Cnt |      Score |      Error | Units |
+| -------------------- | -------------------- | ---------- | ----------- | ---------- | ----- | --- | ---------- | ---------- | ----- |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding |      16384 |         128 |            | thrpt |  40 |   5901.155 | ±   24.470 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding |      16384 |         192 |            | thrpt |  40 |   4659.546 | ±    9.460 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding |      16384 |         256 |            | thrpt |  40 |   4011.121 | ±    8.243 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |   5707.388 | ±   17.044 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |   4501.009 | ±    8.244 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |   3904.410 | ±    3.853 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding |      16384 |         128 |            | thrpt |  40 | 128815.279 | ± 1397.866 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding |      16384 |         192 |            | thrpt |  40 | 113333.237 | ±  747.762 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding |      16384 |         256 |            | thrpt |  40 |  96580.150 | ± 3637.798 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |  88872.798 | ±  752.751 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |  82421.743 | ±  530.777 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |  76023.572 | ±  510.683 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding |      16384 |         128 |            | thrpt |  40 |   5357.148 | ±   21.457 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding |      16384 |         192 |            | thrpt |  40 |   4501.381 | ±    7.930 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding |      16384 |         256 |            | thrpt |  40 |   4023.513 | ±    5.300 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |   5249.850 | ±    9.138 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |   4433.141 | ±    7.473 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |   3960.940 | ±    6.340 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding |      16384 |         128 |            | thrpt |  40 |  64815.014 | ±  376.367 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding |      16384 |         192 |            | thrpt |  40 |  58196.070 | ±  318.089 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding |      16384 |         256 |            | thrpt |  40 |  52590.380 | ±  250.975 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |  43201.966 | ± 2454.107 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |  37184.369 | ±  238.474 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |  34863.599 | ±  159.094 | ops/s |
+
+- Both enabled:
+
+| Benchmark            |          (algorithm)  | (dataSize) | (keyLength) | (provider) | Mode  | Cnt |   Score    |    Error   | Units |
+| -------------------- | --------------------- | ---------- | ----------- | ---------- | ----- | --- | ---------- | ---------- | ----- |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        128  |            | thrpt |  40 |  55553.230 | ±  905.229 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        192  |            | thrpt |  40 |  51742.122 | ±  348.721 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        256  |            | thrpt |  40 |  47072.116 | ±  811.524 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  52310.987 | ± 2816.881 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  42063.309 | ± 1062.863 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  40516.077 | ±  747.582 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        128  |            | thrpt |  40 | 128517.413 | ±  906.098 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        192  |            | thrpt |  40 | 114284.223 | ± 1083.228 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        256  |            | thrpt |  40 |  95908.948 | ± 3656.519 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  90536.504 | ±  531.947 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  83038.682 | ±  595.572 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  77070.714 | ±  733.131 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        128  |            | thrpt |  40 |  50387.447 | ± 1311.024 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        192  |            | thrpt |  40 |  44571.334 | ±  852.342 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        256  |            | thrpt |  40 |  42302.771 | ± 1370.698 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  37890.247 | ±  218.274 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  34793.560 | ±  816.398 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  34473.960 | ±  653.653 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        128  |            | thrpt |  40 |  64500.916 | ±  444.196 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        192  |            | thrpt |  40 |  58097.381 | ±  327.415 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        256  |            | thrpt |  40 |  52505.098 | ±  340.470 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  40771.716 | ± 1544.239 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  37213.648 | ±  223.982 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  34744.441 | ±  217.757 | ops/s |
+
+- Final results:
+
+| Benchmark            |          (algorithm)  | (dataSize) | (keyLength) |      Score difference (enabled - disabled) | Error (enabled + disabled) | % of score (100% * difference / enabled) | Units |
+| -------------------- | --------------------- | ---------- | ----------- | ------------------------------------------ | -------------------------- | ---------------------------------------- | ----- |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        128  |                                  49652,075 |                 ±  929,699 |                              89.3774763% | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        192  |                                  47082,576 |                 ±  358,181 |                              90.9946755% | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        256  |                                  43060,995 |                 ±  819,767 |                              91.4787748% | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |                                  46603,599 |                 ± 2833,925 |                              89.0895043% | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |                                    37562,3 |                 ± 1071,107 |                              89.2994415% | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |                                  36611,667 |                 ±  751,435 |                              90.3633069% | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        128  |                                   −297,866 |                 ± 2303,964 |                               0.2317709% | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        192  |                                    950,986 |                  ± 1830,99 |                               0.8321236% | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        256  |                                   −671,202 |                 ± 7294,317 |                              −0.6998325% | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |                                   1663,706 |                 ± 1284,698 |                                1.837608% | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |                                    616,939 |                 ± 1126,349 |                               0.7429537% | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |                                   1047,142 |                 ± 1243,814 |                               1.3586769% | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        128  |                                  45030,299 |                 ± 1265,271 |                                89.36809% | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        192  |                                  40069,953 |                 ±  860,272 |                              89.9007263% | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        256  |                                  38279,258 |                 ± 1375,998 |                               90.488772% | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |                                  32640,397 |                 ±  227,412 |                              86.1445876% | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |                                  30360,419 |                 ±  823,871 |                              87.2587312% | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |                                   30513,02 |                 ±  659,993 |                              88.5103423% | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        128  |                                   −314,098 |                 ±  820,563 |                              −0.4869667% | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        192  |                                    −98,689 |                 ±  645,504 |                              −0.1698682% | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        256  |                                    −85,282 |                 ±  591,445 |                              −0.1624261% | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |                                   −2430,25 |                 ± 3998,346 |                              −5.9606272% | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |                                     29,279 |                 ±  462,456 |                               0.0786781% | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |                                   −119,158 |                 ±  376,851 |                              −0.3429556% | ops/s |
+
+Average % of score: 44,563898483%
+
 
 All tests were run on:
 
@@ -368,4 +461,124 @@ analyzing CPU 3:
                   within this range.
   current CPU frequency is 600 MHz.
   cpufreq stats: 600 MHz:71.29%, 700 MHz:3.89%, 800 MHz:1.34%, 900 MHz:0.85%, 1000 MHz:0.78%, 1.10 GHz:0.58%, 1.20 GHz:0.42%, 1.30 GHz:0.39%, 1.40 GHz:0.28%, 1.50 GHz:20.18%  (1976771)
+```
+
+Test stand overview for AES microbenchmark. It is different for AES-related intrinsics are disabled in Raspberry Pi 4:
+
+```
+$ uname -a
+Linux rock-5b 5.10.110-34-rockchip-gca15bbe36e6c #rockchip SMP Wed Dec 7 06:54:05 UTC 2022 aarch64 aarch64 aarch64 GNU/Linux
+```
+
+```
+$ lscpu
+Architecture:                    aarch64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+CPU(s):                          8
+On-line CPU(s) list:             0-7
+Thread(s) per core:              1
+Core(s) per socket:              2
+Socket(s):                       3
+Vendor ID:                       ARM
+Model:                           0
+Model name:                      Cortex-A55
+Stepping:                        r2p0
+CPU max MHz:                     2400.0000
+CPU min MHz:                     408.0000
+BogoMIPS:                        48.00
+L1d cache:                       256 KiB
+L1i cache:                       256 KiB
+L2 cache:                        1 MiB
+L3 cache:                        3 MiB
+Vulnerability Itlb multihit:     Not affected
+Vulnerability L1tf:              Not affected
+Vulnerability Mds:               Not affected
+Vulnerability Meltdown:          Not affected
+Vulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled v
+                                 ia prctl
+Vulnerability Spectre v1:        Mitigation; __user pointer sanitization
+Vulnerability Spectre v2:        Vulnerable: Unprivileged eBPF enabled
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fp asimd evtstrm aes pmull sha1 sha2 crc32 atom
+                                 ics fphp asimdhp cpuid asimdrdm lrcpc dcpop asi
+                                 mddp
+```
+
+```
+$ cat /proc/cpuinfo
+processor	: 0
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 1
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 2
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 3
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x2
+CPU part	: 0xd05
+CPU revision	: 0
+
+processor	: 4
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x4
+CPU part	: 0xd0b
+CPU revision	: 0
+
+processor	: 5
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x4
+CPU part	: 0xd0b
+CPU revision	: 0
+
+processor	: 6
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x4
+CPU part	: 0xd0b
+CPU revision	: 0
+
+processor	: 7
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x4
+CPU part	: 0xd0b
+CPU revision	: 0
+
+Serial		: 1fa0bc2c51185a02
 ```
