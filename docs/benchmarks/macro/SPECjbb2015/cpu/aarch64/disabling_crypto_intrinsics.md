@@ -4,28 +4,54 @@ Max-jOPS represents the maximum transaction throughput of a system until further
 
 [Link for good explanation on it](https://www.anandtech.com/show/16315/the-ampere-altra-review/7#:~:text=That's%20a%20lot%20of%20technicalities,levels%20of%20guaranteed%20response%20times%2C).
 
-##### Absolute numbers
+#### Absolute numbers
 
 | Configuration                                                                             | max-jOPS | critical-jOPS |
 | ----------------------------------------------------------------------------------------- | -------- | ------------- |
-| Default intrinsics set                                                                    | TODO     | TODO          |
-| Without `_updateBytesAdler32` intrinsic                                                   | TODO     | TODO          |
-| Without `_updateBytesCRC32` intrinsic                                                     | TODO     | TODO          |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                  | TODO     | TODO          |
-| Without `_cipherBlockChaining_encryptAESCrypt` and `_cipherBlockChaining_decryptAESCrypt` | TODO     | TODO          |
+| Default intrinsics set                                                                    | 2702     | 0             |
+| Without `_updateBytesAdler32` intrinsic                                                   | 3018     | 0             |
+| Without `_updateBytesCRC32` intrinsic                                                     | 2911     | 0             |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                  | 2990     | 0             |
+| Without `_cipherBlockChaining_encryptAESCrypt` and `_cipherBlockChaining_decryptAESCrypt` | 3108     | 0             |
 
-##### % of performance
+#### % of performance
 
 | Configuration                                                                             | max-jOPS     | critical-jOPS     |
 | ----------------------------------------------------------------------------------------- | ------------ | ----------------- |
 | Default intrinsics set                                                                    | 100%         | 100%              |
-| Without `_updateBytesAdler32` intrinsic                                                   | TODO         | TODO              |
-| Without `_updateBytesCRC32` intrinsic                                                     | TODO         | TODO              |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                  | TODO         | TODO              |
-| Without `_cipherBlockChaining_encryptAESCrypt` and `_cipherBlockChaining_decryptAESCrypt` | TODO         | TODO              |
+| Without `_updateBytesAdler32` intrinsic                                                   | 111.6950407% | 100%              |
+| Without `_updateBytesCRC32` intrinsic                                                     | 107.7350111% | 100%              |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                  | 110.6587713% | 100%              |
+| Without `_cipherBlockChaining_encryptAESCrypt` and `_cipherBlockChaining_decryptAESCrypt` | 115.0259067% | 100%              |
 
 
-##### Test stand overview
+#### Runs evaluation
+
+All benchmarks were run on
+
+```
+openjdk version "22-testing" 2024-03-19
+OpenJDK Runtime Environment (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915)
+OpenJDK 64-Bit Server VM (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915, mixed mode)
+```
+
+with additional flags (where needed): `-XX:+UseParallelGC -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=28 -XX:TargetSurvivorRatio=95 -XX:MaxTenuringThreshold=15 -Xms14G -Xmx14 -Xmn13500M -XX:DisableIntrinsic=<intrinsic name>`.
+
+Flags overview:
+- `UseParallelGC`: Use ParallelGC as a garbage collector;
+- `-UseAdaptiveSizePolicy`: When it is turned on, changes heap generation sizes dynamically to meet the following goals sequentially:
+  - Latency Goal - Reduce application pauses below a desired level;
+  - Throughput Goal - Increase the ratio of application execution time over pause time above a desired level;
+  - Footprint Goal - Reduce the heap size as low as possible;
+- `SurvivorRatio`: The SurvivorRatio parameter controls the size of the two survivor spaces. For example, -XX:SurvivorRatio=6 sets the ratio between each survivor space and eden to be 1:6, each survivor space will be one eighth of the young generation;
+- `TargetSurvivorRatio`: Sets the maximum survivor space usage percentage;
+- `MaxTenuringThreshold`: MaxTenuringThreshold ensures that objects are not prematurely moved to the OldGen space. It specifies the upper age limit (tenuring threshold) after which the object would be copied (promoted) to old space;
+- `Xms`: The option to specify the minimum heap size;
+- `Xmx`: The option to specify the maximum heap size;
+- `Xmn`: the size of the heap for the young generation;
+
+
+#### Test stand overview
 
 ```
 $ uname -a
@@ -145,32 +171,7 @@ CPU revision	: 0
 Serial		: 1fa0bc2c51185a02
 ```
 
-#### Runs evaluation
-
-All benchmarks were run on
-
-```
-openjdk version "22-testing" 2024-03-19
-OpenJDK Runtime Environment (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915)
-OpenJDK 64-Bit Server VM (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915, mixed mode)
-```
-
-with additional flags (where needed): `-XX:+UseParallelGC -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=28 -XX:TargetSurvivorRatio=95 -XX:MaxTenuringThreshold=15 -Xms6G -Xmx6G -Xmn5500M -XX:DisableIntrinsic=<intrinsic name>`.
-
-Flags overview:
-- `UseParallelGC`: Use ParallelGC as a garbage collector;
-- `-UseAdaptiveSizePolicy`: When it is turned on, changes heap generation sizes dynamically to meet the following goals sequentially:
-  - Latency Goal - Reduce application pauses below a desired level;
-  - Throughput Goal - Increase the ratio of application execution time over pause time above a desired level;
-  - Footprint Goal - Reduce the heap size as low as possible;
-- `SurvivorRatio`: The SurvivorRatio parameter controls the size of the two survivor spaces. For example, -XX:SurvivorRatio=6 sets the ratio between each survivor space and eden to be 1:6, each survivor space will be one eighth of the young generation;
-- `TargetSurvivorRatio`: Sets the maximum survivor space usage percentage;
-- `MaxTenuringThreshold`: MaxTenuringThreshold ensures that objects are not prematurely moved to the OldGen space. It specifies the upper age limit (tenuring threshold) after which the object would be copied (promoted) to old space;
-- `Xms`: The option to specify the minimum heap size;
-- `Xmx`: The option to specify the maximum heap size;
-- `Xmn`: the size of the heap for the young generation;
-
-Due to possible trottling issues, the CPU frequency was disabled using `cpufreq` utility. 
+Due to possible trottling issues, the CPU frequency was lowered to minimum (408 Mhz) using `cpufreq` utility. 
 Before disabling:
 
 ```
