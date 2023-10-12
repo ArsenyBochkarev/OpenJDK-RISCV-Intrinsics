@@ -314,7 +314,7 @@ OpenJDK 64-Bit Server VM (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-
 
 with additional flags: `-XX:+UnlockDiagnosticVMOptions -XX:DisableIntrinsic=<intrinsic name>` (where needed).
 
-Full test stand overview:
+Full test stand overview (except for AES-related intrinsics microbenchmarks, see below):
 
 ```
 $ uname -a
@@ -463,7 +463,7 @@ analyzing CPU 3:
   cpufreq stats: 600 MHz:71.29%, 700 MHz:3.89%, 800 MHz:1.34%, 900 MHz:0.85%, 1000 MHz:0.78%, 1.10 GHz:0.58%, 1.20 GHz:0.42%, 1.30 GHz:0.39%, 1.40 GHz:0.28%, 1.50 GHz:20.18%  (1976771)
 ```
 
-Test stand overview for AES microbenchmark. It is different for AES-related intrinsics are disabled in Raspberry Pi 4:
+Test stand overview for AES microbenchmark. It is different because AES-related intrinsics are disabled in Raspberry Pi 4:
 
 ```
 $ uname -a

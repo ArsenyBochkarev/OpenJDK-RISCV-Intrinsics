@@ -6,19 +6,19 @@ Overview of performance running SPECjvm2008 `crypto.aes` benchmark on board with
 
 | Configuration                                                                                        | Score  | Units |
 | ---------------------------------------------------------------------------------------------------- | ------ | ----- |
-| Default intrinsics set                                                                               | 73.06  | ops/m |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                             | 69.34  | ops/m |
-| Without `_cipherBlockChaining_decryptAESCrypt` and `_cipherBlockChaining_encryptAESCrypt` intrinsics | 78.47  | ops/m |
-| Without all intrinsics together                                                                      | 71.17  | ops/m |
+| Default intrinsics set                                                                               | TODO   | ops/m |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                             | TODO   | ops/m |
+| Without `_cipherBlockChaining_decryptAESCrypt` and `_cipherBlockChaining_encryptAESCrypt` intrinsics | TODO   | ops/m |
+| Without all intrinsics together                                                                      | TODO   | ops/m |
 
 #### % of performance
 
 | Configuration                                                                                        | Score        |
 | ---------------------------------------------------------------------------------------------------- | ------------ |
 | Default intrinsics set                                                                               | 100%         |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                             | 94.9082946%  |
-| Without `_cipherBlockChaining_decryptAESCrypt` and `_cipherBlockChaining_encryptAESCrypt` intrinsics | 107.4048727% |
-| Without all intrinsics together                                                                      | 97.4130851%  |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                             | TODO         |
+| Without `_cipherBlockChaining_decryptAESCrypt` and `_cipherBlockChaining_encryptAESCrypt` intrinsics | TODO         |
+| Without all intrinsics together                                                                      | TODO         |
 
 
 All benchmarks were run on
@@ -29,7 +29,7 @@ OpenJDK Runtime Environment (build 22-testing-builds.shipilev.net-openjdk-jdk-b5
 OpenJDK 64-Bit Server VM (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915, mixed mode)
 ```
 
-with additional flags `--iterations 10`.
+with additional flags `--warmuptime 120s --iterationtime 300s --iterations 10`.
 
 #### Test stand overview:
 
@@ -149,4 +149,229 @@ CPU part	: 0xd0b
 CPU revision	: 0
 
 Serial		: 1fa0bc2c51185a02
+```
+
+Due to possible trottling issues, the CPU frequency was disabled using `cpufreq` utility. 
+Before disabling:
+
+```
+~$ cpufreq-info
+cpufrequtils 008: cpufreq-info (C) Dominik Brodowski 2004-2009
+Report errors and bugs to cpufreq@vger.kernel.org, please.
+analyzing CPU 0:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 1.42 GHz and 1.61 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.42 GHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879807)
+analyzing CPU 1:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 1.42 GHz and 1.61 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.42 GHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879807)
+analyzing CPU 2:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 1.42 GHz and 1.61 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.42 GHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879807)
+analyzing CPU 3:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 1.42 GHz and 1.61 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.42 GHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879807)
+analyzing CPU 4:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 4 5
+  CPUs which need to have their frequency coordinated by software: 4 5
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.48%, 600 MHz:0.20%, 816 MHz:0.12%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.07%, 2.21 GHz:0.26%, 2.40 GHz:2.45%  (2067300)
+analyzing CPU 5:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 4 5
+  CPUs which need to have their frequency coordinated by software: 4 5
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.48%, 600 MHz:0.20%, 816 MHz:0.12%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.07%, 2.21 GHz:0.26%, 2.40 GHz:2.45%  (2067300)
+analyzing CPU 6:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 6 7
+  CPUs which need to have their frequency coordinated by software: 6 7
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.65%, 600 MHz:0.23%, 816 MHz:0.13%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.06%, 2.21 GHz:0.22%, 2.40 GHz:2.28%  (2109260)
+analyzing CPU 7:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 6 7
+  CPUs which need to have their frequency coordinated by software: 6 7
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.65%, 600 MHz:0.23%, 816 MHz:0.13%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.06%, 2.21 GHz:0.22%, 2.40 GHz:2.28%  (2109260)
+```
+
+and after disabling:
+
+```
+$ cpufreq-info
+cpufrequtils 008: cpufreq-info (C) Dominik Brodowski 2004-2009
+Report errors and bugs to cpufreq@vger.kernel.org, please.
+analyzing CPU 0:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 408 MHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879818)
+analyzing CPU 1:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 408 MHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879818)
+analyzing CPU 2:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 408 MHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879818)
+analyzing CPU 3:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 408 MHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879818)
+analyzing CPU 4:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 4 5
+  CPUs which need to have their frequency coordinated by software: 4 5
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.48%, 600 MHz:0.20%, 816 MHz:0.12%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.07%, 2.21 GHz:0.26%, 2.40 GHz:2.45%  (2067300)
+analyzing CPU 5:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 4 5
+  CPUs which need to have their frequency coordinated by software: 4 5
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.48%, 600 MHz:0.20%, 816 MHz:0.12%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.07%, 2.21 GHz:0.26%, 2.40 GHz:2.45%  (2067300)
+analyzing CPU 6:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 6 7
+  CPUs which need to have their frequency coordinated by software: 6 7
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.65%, 600 MHz:0.23%, 816 MHz:0.13%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.06%, 2.21 GHz:0.22%, 2.40 GHz:2.28%  (2109260)
+analyzing CPU 7:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 6 7
+  CPUs which need to have their frequency coordinated by software: 6 7
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.65%, 600 MHz:0.23%, 816 MHz:0.13%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.06%, 2.21 GHz:0.22%, 2.40 GHz:2.28%  (2109260)
 ```
