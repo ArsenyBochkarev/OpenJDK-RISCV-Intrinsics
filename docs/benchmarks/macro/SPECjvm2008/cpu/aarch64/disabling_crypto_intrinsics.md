@@ -6,20 +6,19 @@ Overview of performance running SPECjvm2008 `crypto.aes` benchmark on board with
 
 | Configuration                                                                                        | Score  | Units |
 | ---------------------------------------------------------------------------------------------------- | ------ | ----- |
-| Default intrinsics set                                                                               | TODO   | ops/m |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                             | TODO   | ops/m |
-| Without `_cipherBlockChaining_decryptAESCrypt` and `_cipherBlockChaining_encryptAESCrypt` intrinsics | TODO   | ops/m |
-| Without all intrinsics together                                                                      | TODO   | ops/m |
+| Default intrinsics set                                                                               | 65.02  | ops/m |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                             | 64.76  | ops/m |
+| Without `_cipherBlockChaining_decryptAESCrypt` and `_cipherBlockChaining_encryptAESCrypt` intrinsics | 57.62  | ops/m |
 
 #### % of performance
 
 | Configuration                                                                                        | Score        |
 | ---------------------------------------------------------------------------------------------------- | ------------ |
 | Default intrinsics set                                                                               | 100%         |
-| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                             | TODO         |
-| Without `_cipherBlockChaining_decryptAESCrypt` and `_cipherBlockChaining_encryptAESCrypt` intrinsics | TODO         |
-| Without all intrinsics together                                                                      | TODO         |
+| Without `_aescrypt_encryptBlock` and `_aescrypt_decryptBlock` intrinsics                             | 99.600123%   |
+| Without `_cipherBlockChaining_decryptAESCrypt` and `_cipherBlockChaining_encryptAESCrypt` intrinsics | 88.6188865%  |
 
+#### Runs evaluation
 
 All benchmarks were run on
 
@@ -29,7 +28,7 @@ OpenJDK Runtime Environment (build 22-testing-builds.shipilev.net-openjdk-jdk-b5
 OpenJDK 64-Bit Server VM (build 22-testing-builds.shipilev.net-openjdk-jdk-b559-20230915, mixed mode)
 ```
 
-with additional flags `--warmuptime 120s --iterationtime 300s --iterations 10`.
+with additional flags `--warmuptime 180s --iterationtime 300s --iterations 10`.
 
 #### Test stand overview:
 
@@ -151,7 +150,7 @@ CPU revision	: 0
 Serial		: 1fa0bc2c51185a02
 ```
 
-Due to possible trottling issues, the CPU frequency was disabled using `cpufreq` utility. 
+Due to possible trottling issues, the CPU frequency was lowered to minimum (408 Mhz) using `cpufreq` utility. 
 Before disabling:
 
 ```
