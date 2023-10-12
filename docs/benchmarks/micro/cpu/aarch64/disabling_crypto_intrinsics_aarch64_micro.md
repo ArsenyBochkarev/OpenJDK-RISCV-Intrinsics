@@ -218,90 +218,90 @@ Intrinsics name: `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`.
 
 | Benchmark            |          (algorithm) | (dataSize) | (keyLength) | (provider) | Mode  | Cnt |      Score |      Error | Units |
 | -------------------- | -------------------- | ---------- | ----------- | ---------- | ----- | --- | ---------- | ---------- | ----- |
-| AES.AESBench.decrypt |    AES/ECB/NoPadding |      16384 |         128 |            | thrpt |  40 |   5901.155 | ±   24.470 | ops/s |
-| AES.AESBench.decrypt |    AES/ECB/NoPadding |      16384 |         192 |            | thrpt |  40 |   4659.546 | ±    9.460 | ops/s |
-| AES.AESBench.decrypt |    AES/ECB/NoPadding |      16384 |         256 |            | thrpt |  40 |   4011.121 | ±    8.243 | ops/s |
-| AES.AESBench.decrypt | AES/ECB/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |   5707.388 | ±   17.044 | ops/s |
-| AES.AESBench.decrypt | AES/ECB/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |   4501.009 | ±    8.244 | ops/s |
-| AES.AESBench.decrypt | AES/ECB/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |   3904.410 | ±    3.853 | ops/s |
-| AES.AESBench.decrypt |    AES/CBC/NoPadding |      16384 |         128 |            | thrpt |  40 | 128815.279 | ± 1397.866 | ops/s |
-| AES.AESBench.decrypt |    AES/CBC/NoPadding |      16384 |         192 |            | thrpt |  40 | 113333.237 | ±  747.762 | ops/s |
-| AES.AESBench.decrypt |    AES/CBC/NoPadding |      16384 |         256 |            | thrpt |  40 |  96580.150 | ± 3637.798 | ops/s |
-| AES.AESBench.decrypt | AES/CBC/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |  88872.798 | ±  752.751 | ops/s |
-| AES.AESBench.decrypt | AES/CBC/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |  82421.743 | ±  530.777 | ops/s |
-| AES.AESBench.decrypt | AES/CBC/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |  76023.572 | ±  510.683 | ops/s |
-| AES.AESBench.encrypt |    AES/ECB/NoPadding |      16384 |         128 |            | thrpt |  40 |   5357.148 | ±   21.457 | ops/s |
-| AES.AESBench.encrypt |    AES/ECB/NoPadding |      16384 |         192 |            | thrpt |  40 |   4501.381 | ±    7.930 | ops/s |
-| AES.AESBench.encrypt |    AES/ECB/NoPadding |      16384 |         256 |            | thrpt |  40 |   4023.513 | ±    5.300 | ops/s |
-| AES.AESBench.encrypt | AES/ECB/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |   5249.850 | ±    9.138 | ops/s |
-| AES.AESBench.encrypt | AES/ECB/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |   4433.141 | ±    7.473 | ops/s |
-| AES.AESBench.encrypt | AES/ECB/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |   3960.940 | ±    6.340 | ops/s |
-| AES.AESBench.encrypt |    AES/CBC/NoPadding |      16384 |         128 |            | thrpt |  40 |  64815.014 | ±  376.367 | ops/s |
-| AES.AESBench.encrypt |    AES/CBC/NoPadding |      16384 |         192 |            | thrpt |  40 |  58196.070 | ±  318.089 | ops/s |
-| AES.AESBench.encrypt |    AES/CBC/NoPadding |      16384 |         256 |            | thrpt |  40 |  52590.380 | ±  250.975 | ops/s |
-| AES.AESBench.encrypt | AES/CBC/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |  43201.966 | ± 2454.107 | ops/s |
-| AES.AESBench.encrypt | AES/CBC/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |  37184.369 | ±  238.474 | ops/s |
-| AES.AESBench.encrypt | AES/CBC/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |  34863.599 | ±  159.094 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding |      16384 |         128 |            | thrpt |  40 |   5812.169 | ±   24.470 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding |      16384 |         192 |            | thrpt |  40 |   4605.663 | ±    9.460 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding |      16384 |         256 |            | thrpt |  40 |   3975.306 | ±    8.243 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |   5560.733 | ±   17.044 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |   4412.294 | ±    8.244 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |   3838.535 | ±    3.853 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding |      16384 |         128 |            | thrpt |  40 |  95030.039 | ± 1397.866 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding |      16384 |         192 |            | thrpt |  40 |  84698.599 | ±  747.762 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding |      16384 |         256 |            | thrpt |  40 |  78549.749 | ± 3637.798 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |  63699.390 | ±  752.751 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |  60784.155 | ±  530.777 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |  54477.348 | ±  510.683 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding |      16384 |         128 |            | thrpt |  40 |   5296.348 | ±   21.457 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding |      16384 |         192 |            | thrpt |  40 |   4446.341 | ±    7.930 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding |      16384 |         256 |            | thrpt |  40 |   3981.547 | ±    5.300 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |    5116.05 | ±    9.138 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |   4346.175 | ±    7.473 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |   3893.182 | ±    6.340 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding |      16384 |         128 |            | thrpt |  40 |  58489.877 | ±  376.367 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding |      16384 |         192 |            | thrpt |  40 |  53254.766 | ±  318.089 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding |      16384 |         256 |            | thrpt |  40 |  48750.947 | ±  250.975 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding |      16384 |         128 |            | thrpt |  40 |  35505.850 | ± 2454.107 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding |      16384 |         192 |            | thrpt |  40 |  33397.509 | ±  238.474 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding |      16384 |         256 |            | thrpt |  40 |  31405.066 | ±  159.094 | ops/s |
 
 - Both enabled:
 
 | Benchmark            |          (algorithm)  | (dataSize) | (keyLength) | (provider) | Mode  | Cnt |   Score    |    Error   | Units |
 | -------------------- | --------------------- | ---------- | ----------- | ---------- | ----- | --- | ---------- | ---------- | ----- |
-| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        128  |            | thrpt |  40 |  55553.230 | ±  905.229 | ops/s |
-| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        192  |            | thrpt |  40 |  51742.122 | ±  348.721 | ops/s |
-| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        256  |            | thrpt |  40 |  47072.116 | ±  811.524 | ops/s |
-| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  52310.987 | ± 2816.881 | ops/s |
-| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  42063.309 | ± 1062.863 | ops/s |
-| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  40516.077 | ±  747.582 | ops/s |
-| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        128  |            | thrpt |  40 | 128517.413 | ±  906.098 | ops/s |
-| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        192  |            | thrpt |  40 | 114284.223 | ± 1083.228 | ops/s |
-| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        256  |            | thrpt |  40 |  95908.948 | ± 3656.519 | ops/s |
-| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  90536.504 | ±  531.947 | ops/s |
-| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  83038.682 | ±  595.572 | ops/s |
-| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  77070.714 | ±  733.131 | ops/s |
-| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        128  |            | thrpt |  40 |  50387.447 | ± 1311.024 | ops/s |
-| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        192  |            | thrpt |  40 |  44571.334 | ±  852.342 | ops/s |
-| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        256  |            | thrpt |  40 |  42302.771 | ± 1370.698 | ops/s |
-| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  37890.247 | ±  218.274 | ops/s |
-| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  34793.560 | ±  816.398 | ops/s |
-| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  34473.960 | ±  653.653 | ops/s |
-| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        128  |            | thrpt |  40 |  64500.916 | ±  444.196 | ops/s |
-| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        192  |            | thrpt |  40 |  58097.381 | ±  327.415 | ops/s |
-| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        256  |            | thrpt |  40 |  52505.098 | ±  340.470 | ops/s |
-| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  40771.716 | ± 1544.239 | ops/s |
-| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  37213.648 | ±  223.982 | ops/s |
-| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  34744.441 | ±  217.757 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        128  |            | thrpt |  40 |  52335.609 | ±  905.229 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        192  |            | thrpt |  40 |  46720.021 | ±  348.721 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        256  |            | thrpt |  40 |  44423.724 | ±  811.524 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  41376.741 | ± 2816.881 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  36832.130 | ± 1062.863 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  35960.606 | ±  747.582 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        128  |            | thrpt |  40 |  94281.506 | ±  906.098 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        192  |            | thrpt |  40 |  85267.275 | ± 1083.228 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        256  |            | thrpt |  40 |  78683.574 | ± 3656.519 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  63955.424 | ±  531.947 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  60262.148 | ±  595.572 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  56188.187 | ±  733.131 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        128  |            | thrpt |  40 |  47505.660 | ± 1311.024 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        192  |            | thrpt |  40 |  42901.098 | ±  852.342 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        256  |            | thrpt |  40 |  42840.861 | ± 1370.698 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  33631.211 | ±  218.274 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  32185.563 | ±  816.398 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  29275.762 | ±  653.653 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        128  |            | thrpt |  40 |  58633.413 | ±  444.196 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        192  |            | thrpt |  40 |  53315.779 | ±  327.415 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        256  |            | thrpt |  40 |  48617.177 | ±  340.470 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |            | thrpt |  40 |  35704.127 | ± 1544.239 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |            | thrpt |  40 |  33408.501 | ±  223.982 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |            | thrpt |  40 |  31455.608 | ±  217.757 | ops/s |
 
 - Final results:
 
 | Benchmark            |          (algorithm)  | (dataSize) | (keyLength) |      Score difference (enabled - disabled) | Error (enabled + disabled) | % of score (100% * difference / enabled) | Units |
 | -------------------- | --------------------- | ---------- | ----------- | ------------------------------------------ | -------------------------- | ---------------------------------------- | ----- |
-| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        128  |                                  49652,075 |                 ±  929,699 |                              89.3774763% | ops/s |
-| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        192  |                                  47082,576 |                 ±  358,181 |                              90.9946755% | ops/s |
-| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        256  |                                  43060,995 |                 ±  819,767 |                              91.4787748% | ops/s |
-| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |                                  46603,599 |                 ± 2833,925 |                              89.0895043% | ops/s |
-| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |                                    37562,3 |                 ± 1071,107 |                              89.2994415% | ops/s |
-| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |                                  36611,667 |                 ±  751,435 |                              90.3633069% | ops/s |
-| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        128  |                                   −297,866 |                 ± 2303,964 |                               0.2317709% | ops/s |
-| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        192  |                                    950,986 |                  ± 1830,99 |                               0.8321236% | ops/s |
-| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        256  |                                   −671,202 |                 ± 7294,317 |                              −0.6998325% | ops/s |
-| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |                                   1663,706 |                 ± 1284,698 |                                1.837608% | ops/s |
-| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |                                    616,939 |                 ± 1126,349 |                               0.7429537% | ops/s |
-| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |                                   1047,142 |                 ± 1243,814 |                               1.3586769% | ops/s |
-| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        128  |                                  45030,299 |                 ± 1265,271 |                                89.36809% | ops/s |
-| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        192  |                                  40069,953 |                 ±  860,272 |                              89.9007263% | ops/s |
-| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        256  |                                  38279,258 |                 ± 1375,998 |                               90.488772% | ops/s |
-| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |                                  32640,397 |                 ±  227,412 |                              86.1445876% | ops/s |
-| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |                                  30360,419 |                 ±  823,871 |                              87.2587312% | ops/s |
-| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |                                   30513,02 |                 ±  659,993 |                              88.5103423% | ops/s |
-| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        128  |                                   −314,098 |                 ±  820,563 |                              −0.4869667% | ops/s |
-| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        192  |                                    −98,689 |                 ±  645,504 |                              −0.1698682% | ops/s |
-| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        256  |                                    −85,282 |                 ±  591,445 |                              −0.1624261% | ops/s |
-| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |                                   −2430,25 |                 ± 3998,346 |                              −5.9606272% | ops/s |
-| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |                                     29,279 |                 ±  462,456 |                               0.0786781% | ops/s |
-| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |                                   −119,158 |                 ±  376,851 |                              −0.3429556% | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        128  |                                  46523.440 |                 ± 1594.854 |                              88.8944264% | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        192  |                                  42114.358 |                 ±  861.467 |                              90.1419924% | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding  |     16384  |        256  |                                  40448.418 |                 ±  269.797 |                              91.0513885% | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |                                  35816.008 |                 ±  534.284 |                              86.5607256% | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |                                  32419.836 |                 ±  574.952 |                              88.0205283% | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |                                  32122.071 |                 ±  237.700 |                              89.3257205% | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        128  |                                   -748.534 |                 ± 5583.461 |                              -0.7939351% | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        192  |                                    568.676 |                 ± 3739.233 |                               0.6669335% | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding  |     16384  |        256  |                                    133.825 |                 ± 1067.948 |                               0.1700800% | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |                                    256.034 |                  ± 737.258 |                               0.4003320% | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |                                   -522.007 |                  ± 660.422 |                               -0.8662270 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |                                   1710.839 |                 ± 3647.668 |                               3.0448375% | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        128  |                                  42209.311 |                  ± 611.830 |                              88.8511195% | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        192  |                                  38454.756 |                 ± 1213.342 |                              89.6358311% | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding  |     16384  |        256  |                                  38859.313 |                  ± 946.677 |                              90.7061904% | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        128  |                                  28515.155 |                 ±  324.563 |                              84.7877717% | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        192  |                                  27839.388 |                 ±  454.722 |                              86.4965071% | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding  |     16384  |        256  |                                  25382.579 |                 ±  648.028 |                              86.7016847% | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        128  |                                    143.536 |                 ±  678.473 |                               0.2448024% | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        192  |                                     61.014 |                 ±  469.952 |                               0.1144389% | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding  |     16384  |        256  |                                   -133.770 |                 ±  574.601 |                              -0.2751497% | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        128  |                                    198.277 |                  ± 283.476 |                               0.5553336% | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |                                     10.993 |                 ±  294.511 |                               0.0329048% | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |                                     50.542 |                 ±  339.186 |                               0.1606772% | ops/s |
 
-Average % of score: 44,563898483%
+Average % of score: 44,359538096%
 
 
 All tests were run on:
@@ -581,4 +581,229 @@ CPU part	: 0xd0b
 CPU revision	: 0
 
 Serial		: 1fa0bc2c51185a02
+```
+
+Due to possible trottling issues, the CPU frequency was lowered to minimum (408 Mhz) using `cpufreq` utility. 
+Before disabling:
+
+```
+~$ cpufreq-info
+cpufrequtils 008: cpufreq-info (C) Dominik Brodowski 2004-2009
+Report errors and bugs to cpufreq@vger.kernel.org, please.
+analyzing CPU 0:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 1.42 GHz and 1.61 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.42 GHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879807)
+analyzing CPU 1:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 1.42 GHz and 1.61 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.42 GHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879807)
+analyzing CPU 2:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 1.42 GHz and 1.61 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.42 GHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879807)
+analyzing CPU 3:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 1.42 GHz and 1.61 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.42 GHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879807)
+analyzing CPU 4:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 4 5
+  CPUs which need to have their frequency coordinated by software: 4 5
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.48%, 600 MHz:0.20%, 816 MHz:0.12%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.07%, 2.21 GHz:0.26%, 2.40 GHz:2.45%  (2067300)
+analyzing CPU 5:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 4 5
+  CPUs which need to have their frequency coordinated by software: 4 5
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.48%, 600 MHz:0.20%, 816 MHz:0.12%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.07%, 2.21 GHz:0.26%, 2.40 GHz:2.45%  (2067300)
+analyzing CPU 6:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 6 7
+  CPUs which need to have their frequency coordinated by software: 6 7
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.65%, 600 MHz:0.23%, 816 MHz:0.13%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.06%, 2.21 GHz:0.22%, 2.40 GHz:2.28%  (2109260)
+analyzing CPU 7:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 6 7
+  CPUs which need to have their frequency coordinated by software: 6 7
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.65%, 600 MHz:0.23%, 816 MHz:0.13%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.06%, 2.21 GHz:0.22%, 2.40 GHz:2.28%  (2109260)
+```
+
+and after disabling:
+
+```
+$ cpufreq-info
+cpufrequtils 008: cpufreq-info (C) Dominik Brodowski 2004-2009
+Report errors and bugs to cpufreq@vger.kernel.org, please.
+analyzing CPU 0:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 408 MHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879818)
+analyzing CPU 1:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 408 MHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879818)
+analyzing CPU 2:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 408 MHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879818)
+analyzing CPU 3:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 84.0 us.
+  hardware limits: 408 MHz - 1.80 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 408 MHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:6.68%, 600 MHz:0.72%, 816 MHz:0.06%, 1.01 GHz:60.04%, 1.20 GHz:0.02%, 1.42 GHz:29.03%, 1.61 GHz:3.44%, 1.80 GHz:0.01%  (2879818)
+analyzing CPU 4:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 4 5
+  CPUs which need to have their frequency coordinated by software: 4 5
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.48%, 600 MHz:0.20%, 816 MHz:0.12%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.07%, 2.21 GHz:0.26%, 2.40 GHz:2.45%  (2067300)
+analyzing CPU 5:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 4 5
+  CPUs which need to have their frequency coordinated by software: 4 5
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.48%, 600 MHz:0.20%, 816 MHz:0.12%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.07%, 2.21 GHz:0.26%, 2.40 GHz:2.45%  (2067300)
+analyzing CPU 6:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 6 7
+  CPUs which need to have their frequency coordinated by software: 6 7
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.65%, 600 MHz:0.23%, 816 MHz:0.13%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.06%, 2.21 GHz:0.22%, 2.40 GHz:2.28%  (2109260)
+analyzing CPU 7:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 6 7
+  CPUs which need to have their frequency coordinated by software: 6 7
+  maximum transition latency: 324 us.
+  hardware limits: 408 MHz - 2.40 GHz
+  available frequency steps: 408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.40 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 408 MHz and 2.40 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 408 MHz.
+  cpufreq stats: 408 MHz:96.65%, 600 MHz:0.23%, 816 MHz:0.13%, 1.01 GHz:0.10%, 1.20 GHz:0.11%, 1.42 GHz:0.08%, 1.61 GHz:0.07%, 1.80 GHz:0.06%, 2.02 GHz:0.06%, 2.21 GHz:0.22%, 2.40 GHz:2.28%  (2109260)
 ```
