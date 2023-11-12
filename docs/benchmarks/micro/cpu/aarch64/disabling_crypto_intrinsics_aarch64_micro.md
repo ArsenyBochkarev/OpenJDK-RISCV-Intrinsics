@@ -210,6 +210,61 @@ Intrinsic name: `_updateBytesCRC32`.
 
 Average % of score: 95.5684467%.
 
+### [GHASH microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/GHASH)
+
+- disabled:
+
+| Benchmark                      |                     (HashSubkey)  |                                                                                                                   (InputBlocks)  | Mode  | Cnt |   Score   |  Error    | Units  |
+| ------------------------------ | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | --------- | --------- | ------ |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |                                                                                                                                  | thrpt |  12 | 50281.723 | ± 601.487 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |                                                                                         feedfacedeadbeeffeedfacedeadbeefabaddad2 | thrpt |  12 |  1941.870 | ±   7.376 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |                                                                                                 0388dace60b6a392f328c2b971b2fe78 | thrpt |  12 |  2259.776 | ±  22.900 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e | 42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091473f5985 | thrpt |  12 |   603.967 | ±   4.983 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |         42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091 | thrpt |  12 |   735.614 | ±   4.613 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |         61353b4c2806934a777ff51fa22a4755699b2a714fcdc6f83766e5f97b6c742373806900e49f24b22b097544d4896b424989b5e1ebac0f07c23f4598 | thrpt |  12 |   739.100 | ±   4.419 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |                                                                                                                                  | thrpt |  12 | 50318.175 | ± 661.485 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |                                                                                         feedfacedeadbeeffeedfacedeadbeefabaddad2 | thrpt |  12 |  1935.131 | ±   9.423 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |                                                                                                 0388dace60b6a392f328c2b971b2fe78 | thrpt |  12 |  2275.138 | ±   5.639 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 | 42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091473f5985 | thrpt |  12 |   602.985 | ±   5.286 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |         42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091 | thrpt |  12 |   735.850 | ±   6.383 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |         61353b4c2806934a777ff51fa22a4755699b2a714fcdc6f83766e5f97b6c742373806900e49f24b22b097544d4896b424989b5e1ebac0f07c23f4598 | thrpt |  12 |   737.908 | ±   4.919 | ops/ms |
+
+- enabled:
+
+| Benchmark                      |                    (HashSubkey)   |                                                                                                                 (InputBlocks)    | Mode  | Cnt |  Score    | Error     | Units  |
+| ------------------------------ | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | --------- | --------- | ------ |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |                                                                                                                                  | thrpt |  12 | 50710.765 | ± 350.944 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |                                                                                         feedfacedeadbeeffeedfacedeadbeefabaddad2 | thrpt |  12 |  3861.183 | ± 105.308 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |                                                                                                 0388dace60b6a392f328c2b971b2fe78 | thrpt |  12 |  5451.588 | ±  55.204 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e | 42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091473f5985 | thrpt |  12 |  1553.891 | ±  26.349 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |         42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091 | thrpt |  12 |  1671.687 | ±  28.528 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |         61353b4c2806934a777ff51fa22a4755699b2a714fcdc6f83766e5f97b6c742373806900e49f24b22b097544d4896b424989b5e1ebac0f07c23f4598 | thrpt |  12 |  1674.842 | ±  17.281 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |                                                                                                                                  | thrpt |  12 | 50160.262 | ± 466.134 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |                                                                                         feedfacedeadbeeffeedfacedeadbeefabaddad2 | thrpt |  12 |  3849.996 | ±  25.854 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |                                                                                                 0388dace60b6a392f328c2b971b2fe78 | thrpt |  12 |  5435.584 | ±  62.083 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 | 42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091473f5985 | thrpt |  12 |  1539.089 | ±  23.680 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |         42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091 | thrpt |  12 |  1677.438 | ±  14.646 | ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |         61353b4c2806934a777ff51fa22a4755699b2a714fcdc6f83766e5f97b6c742373806900e49f24b22b097544d4896b424989b5e1ebac0f07c23f4598 | thrpt |  12 |  1675.274 | ±   8.727 | ops/ms |
+
+- final results:
+
+| Benchmark                      |                    (HashSubkey)   |                                                                                                                 (InputBlocks)    | Mode  | Cnt |  Score difference (enabled - disabled)    | Error (enabled + disabled)   | % of score (100% * difference / enabled)  | Units   |
+| ------------------------------ | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | ----------------------------------------- | ---------------------------- | ----------------------------------------  | ------- |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |                                                                                                                                  | thrpt |  12 |                                   429,042 |                   ± 952,431  |                              0,846057%    |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |                                                                                         feedfacedeadbeeffeedfacedeadbeefabaddad2 | thrpt |  12 |                                 1919,313  |                   ± 112,684  |                            49,7079004%    |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |                                                                                                 0388dace60b6a392f328c2b971b2fe78 | thrpt |  12 |                                 3191,812  |                   ±  78,104  |                            58,5482982%    |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e | 42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091473f5985 | thrpt |  12 |                                  949,924  |                   ± 31,332   |                            61,1319584%    |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |         42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091 | thrpt |  12 |                                  936,073  |                   ± 33,141   |                            55,9957097%    |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  66e94bd4ef8a2c3b884cfa59ca342b2e |         61353b4c2806934a777ff51fa22a4755699b2a714fcdc6f83766e5f97b6c742373806900e49f24b22b097544d4896b424989b5e1ebac0f07c23f4598 | thrpt |  12 |                                  935,742  |                   ±    21,7  |                             55,8704642%   |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |                                                                                                                                  | thrpt |  12 |                                   157,913 |                   ± 1127,619 |                            0,3148169%     |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |                                                                                         feedfacedeadbeeffeedfacedeadbeefabaddad2 | thrpt |  12 |                                  1914,865 |                   ±  35,277  |                            49,7368049%    |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |                                                                                                 0388dace60b6a392f328c2b971b2fe78 | thrpt |  12 |                                 3160,446  |                   ± 67,722   |                            58,1436328%    |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 | 42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091473f5985 | thrpt |  12 |                                   936,104 |                   ± 28,966   |                            60,8219538%    |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |         42831ec2217774244b7221b784d0d49ce3aa212f2c02a4e035c17e2329aca12e21d514b25466931c7d8f6a5aac84aa051ba30b396a0aac973d58e091 | thrpt |  12 |                                  941,588  |                   ± 21,029   |                            56,1325068%    |  ops/ms |
+| GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |         61353b4c2806934a777ff51fa22a4755699b2a714fcdc6f83766e5f97b6c742373806900e49f24b22b097544d4896b424989b5e1ebac0f07c23f4598 | thrpt |  12 |                                  937,366  |                   ± 13,646   |                            55,9529963%    |  ops/ms |
+
+Average % of score: 46,933591617%.
+
 ### [AES microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/AES)
 
 Intrinsics name: `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`.
@@ -463,7 +518,7 @@ analyzing CPU 3:
   cpufreq stats: 600 MHz:71.29%, 700 MHz:3.89%, 800 MHz:1.34%, 900 MHz:0.85%, 1000 MHz:0.78%, 1.10 GHz:0.58%, 1.20 GHz:0.42%, 1.30 GHz:0.39%, 1.40 GHz:0.28%, 1.50 GHz:20.18%  (1976771)
 ```
 
-Test stand overview for AES microbenchmark. It is different because AES-related intrinsics are disabled in Raspberry Pi 4:
+Test stand overview for GHASH and AES microbenchmarks. It is different because AES-related intrinsics are disabled in Raspberry Pi 4:
 
 ```
 $ uname -a
