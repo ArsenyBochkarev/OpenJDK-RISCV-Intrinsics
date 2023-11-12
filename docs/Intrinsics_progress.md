@@ -2,8 +2,9 @@ Crypto domain intrinsics progress overview:
 - `_poly1305_processBlocks`: completed, internal review passed, [PR opened](https://github.com/openjdk/jdk/pull/16417);
 - `_updateBytesCRC32`: completed, internal review passed. Next up: 
     - Open PR to upstream for plain version;
-    - Do a comparison between different versions of intrinsic;
-- `_updateBytesCRC32C`: completed, but non-intrinsified version currently works better. Next up: performance tuning;
+    - Do a comparison between different versions of intrinsic on AArch64;
+- `_updateBytesCRC32C`: completed, internal review passed. ;
+    - Open PR to upstream for plain version;
 - `_updateBytesAdler32`: to-do after RVV boards are delivered;
 - `_ghash_processBlocks`: to-do after RVV boards are delivered;
 - `_aescrypt_decryptBlock`, `_aescrypt_encryptBlock`: to-do;
