@@ -16,9 +16,9 @@ Java -- популярная, RISC-V -- набирает обороты, Syntaco
 - `java.util.zip.CRC32С`: [`_updateBytesCRC32C`](https://github.com/openjdk/jdk/blob/master/src/hotspot/cpu/aarch64/stubGenerator_aarch64.cpp#L4375), `_updateDirectByteBufferCRC32C` (<-- not the C2 intrinsic, however, uses the `_updateBytesCRC32C` stub)
 - `com.sun.crypto.provider.GaloisCounterMode`: [`_galoisCounterMode_AESCrypt`](https://github.com/openjdk/jdk/blob/master/src/hotspot/cpu/aarch64/stubGenerator_aarch64.cpp#L3241)
 - `com.sun.crypto.provider.Poly1305`: [`_poly1305_processBlocks`](https://github.com/openjdk/jdk/blob/master/src/hotspot/cpu/aarch64/stubGenerator_aarch64.cpp#L7123)
-- `sun.security.provider.SHA*` : `_sha*_implCompress` (<-- Possible external WIP: https://github.com/openjdk/jdk/pull/12208)
-- `java.util.Base64$Decoder`: `_base64_decodeBlock` (<-- Possible external WIP: https://bugs.openjdk.org/browse/JDK-8314124)
-- `java.util.Base64$Encoder`: `_base64_encodeBlock` (<-- Possible external WIP: https://bugs.openjdk.org/browse/JDK-8314124)
+- `sun.security.provider.SHA*` : `_sha*_implCompress` (<-- External WIP: https://github.com/openjdk/jdk/pull/12208)
+- `java.util.Base64$Decoder`: `_base64_decodeBlock` (<-- External WIP: https://bugs.openjdk.org/browse/JDK-8314124)
+- `java.util.Base64$Encoder`: `_base64_encodeBlock` (<-- External WIP: https://bugs.openjdk.org/browse/JDK-8314124)
 
 По каждому из нереализованных интринсиков кратко описать алгоритм и где применяется: TBD.
 
@@ -27,24 +27,26 @@ Java -- популярная, RISC-V -- набирает обороты, Syntaco
 
 Дальнейшая расстановка приоритетов идёт согласно результатам, полученным в ходе [исследований производительности на архитектуре AArch64](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/blob/main/docs/benchmarks/micro/cpu/aarch64/crypto_intrinsics_performance_overview.md), а также использованию в этих реализациях векторных инструкций (RVV):
 
-1. Poly1305:
+1. Poly1305 (`_poly1305_processBlocks`):
     - Интринсик реализован, внутреннее ревью пройдено, ревью в OpenJDK идёт на данный момент;
 
-2. CRC32-related (оба):
-    - Оба реализованы, внутреннее ревью пройдено частично: согласно нему, есть возможность оптимизации. PR в OpenJDK -- TBD;
+2. CRC32-related (`_updateBytesCRC32`, `_updateBytesCRC32C`):
+    - Оба реализованы, внутреннее ревью пройдено. PR в OpenJDK -- TBD;
 
-3. Adler32:
+3. Adler32 (`_updateBytesAdler32`):
     - Используется RVV;
-    - TBD;
+    - TBD.
 
-4. GHASH:
+4. GHASH (`_ghash_processBlocks`):
     - Используется RVV;
-    - TBD;
+    - TBD.
 
 5. AES-related:
+    - Полный список интринсиков: `_electronicCodeBook_decryptAESCrypt`, `_electronicCodeBook_encryptAESCrypt`, `_counterMode_AESCrypt`, `cipherBlockChaining_decryptAESCrypt`, `_cipherBlockChaining_encryptAESCrypt`, `_aescrypt_decryptBlock`, `_aescrypt_encryptBlock`, _galoisCounterMode_AESCrypt;
     - Приоритет самый низкий, поскольку на данный момент невозможно измерить производительность на RISC-V.
 
 Для каждого из реализованных интринсиков:
 1. Гарантируется корректность работы путём запуска соответствующего ему jtreg-теста;
-2. Измеряется перформанс на соответствующем ему JMH микробенчмарке;
+2. Измеряется перформанс на соответствующем ему JMH микробенчмарке.
+    - В случае отсутствия необходимого JMH микробенчмарка таковой создаётся;
 3. Используется опция `-prof perfasm` при запуске микробенчмарка для отслеживания наиболее "горячих" мест реализованных интринсиков, чтобы, при наличии такой возможности, оптимизировать.
