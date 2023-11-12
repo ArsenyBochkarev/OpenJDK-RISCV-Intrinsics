@@ -42,7 +42,7 @@ public class TestGHASH {
         "66e94bd4ef8a2c3b884cfa59ca342b2e",
         "b83b533708bf535d0aa6e52980d53b78",
     })
-    String H;
+    String HashSubkey;
 
     @Param({
         "",
@@ -66,7 +66,7 @@ public class TestGHASH {
         "73806900e49f24b22b097544d4896b42" +
         "4989b5e1ebac0f07c23f4598",        
     })
-    String data;
+    String InputBlock;
 
     Constructor<?> GHASH;
     Method UPDATE;
@@ -85,8 +85,8 @@ public class TestGHASH {
     }
 
 
-    public Object newGHASH(byte[] H) throws Exception {
-        return GHASH.newInstance(H);
+    public Object newGHASH(byte[] HashSubkey) throws Exception {
+        return GHASH.newInstance(HashSubkey);
     }
 
     public static final String HEX_DIGITS = "0123456789abcdef";
@@ -114,11 +114,11 @@ public class TestGHASH {
 
     @Setup
     public void construct() throws Exception {
-        hash = newGHASH(bytes(H));
+        hash = newGHASH(bytes(HashSubkey));
     }
 
     @Benchmark
     public void updateGHASHStr() throws Exception {
-        UPDATE.invoke(hash, bytes(data));
+        UPDATE.invoke(hash, bytes(InputBlock));
     }
 }
