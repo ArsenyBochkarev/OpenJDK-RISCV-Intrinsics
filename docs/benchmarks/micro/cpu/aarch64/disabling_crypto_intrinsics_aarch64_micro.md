@@ -210,6 +210,60 @@ Intrinsic name: `_updateBytesCRC32`.
 
 Average % of score: 95.5684467%.
 
+### [CRC32 microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/CRC32C)
+
+Intrinsic name: `_updateBytesCRC32C`.
+
+- disabled:
+
+| Benchmark                          | (count) |  Mode | Cnt |     Score |   Error  |  Units |
+| ---------------------------------- | ------- | ----- | --- | --------- | -------- | ------ |
+| CRC32C.TestCRC32C.testCRC32CUpdate |      64 | thrpt |  15 | 11176.977 | ± 12.146 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |     128 | thrpt |  15 |  6504.919 | ± 10.196 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |     256 | thrpt |  15 |  3563.484 | ±  3.580 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |     512 | thrpt |  15 |  1872.744 | ±  1.954 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |    1024 | thrpt |  15 |   965.476 | ±  1.297 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |    2048 | thrpt |  15 |   490.305 | ±  0.672 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |    4096 | thrpt |  15 |   246.984 | ±  0.404 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |    8192 | thrpt |  15 |   123.996 | ±  0.086 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |   16384 | thrpt |  15 |    62.451 | ±  0.152 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |   32768 | thrpt |  15 |    30.872 | ±  0.040 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |   65536 | thrpt |  15 |    15.519 | ±  0.020 | ops/ms |
+
+- enabled:
+
+| Benchmark                          | (count) |  Mode | Cnt |      Score |     Error  | Units  |
+| ---------------------------------- | ------- | ----- | --- | ---------- | ---------- | ------ |
+| CRC32C.TestCRC32C.testCRC32CUpdate |      64 | thrpt |  15 | 139213.289 | ± 5114.536 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |     128 | thrpt |  15 |  92679.328 | ±  870.613 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |     256 | thrpt |  15 |  55888.459 | ±  155.428 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |     512 | thrpt |  15 |  31159.935 | ±   30.085 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |    1024 | thrpt |  15 |  16558.641 | ±    9.433 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |    2048 | thrpt |  15 |   8532.379 | ±   10.966 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |    4096 | thrpt |  15 |   4337.059 | ±    2.816 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |    8192 | thrpt |  15 |   2185.840 | ±    2.464 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |   16384 | thrpt |  15 |   1097.867 | ±    1.345 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |   32768 | thrpt |  15 |    549.598 | ±    0.751 | ops/ms |
+| CRC32C.TestCRC32C.testCRC32CUpdate |   65536 | thrpt |  15 |    270.210 | ±    0.821 | ops/ms |
+
+- final results
+
+| Benchmark                          | (count)    |      Score difference (enabled - disabled)    | Error (enabled + disabled) | % of score (100% * difference / enabled) | Units  |
+| ---------------------------------- | ---------- | --------------------------------------------- | -------------------------- | ---------------------------------------- | ------ |
+| CRC32C.TestCRC32C.testCRC32CUpdate |         64 | 128036,312 | 5126,682 | 91.971329%
+| CRC32C.TestCRC32C.testCRC32CUpdate |        128 | 86174,409  | 880,809 | 92.9812622%
+| CRC32C.TestCRC32C.testCRC32CUpdate |        256 | 52324,975  | 159,008 | 93.6239358%
+| CRC32C.TestCRC32C.testCRC32CUpdate |        512 | 29287,191  | 32,039 | 93.9898976%
+| CRC32C.TestCRC32C.testCRC32CUpdate |       1024 | 15593,165  | 10,73 | 94.1693524%
+| CRC32C.TestCRC32C.testCRC32CUpdate |       2048 | 8042,074   | 11,638 | 94.2535956%
+| CRC32C.TestCRC32C.testCRC32CUpdate |       4096 | 4090,075   | 3,22 | 94.3052654%
+| CRC32C.TestCRC32C.testCRC32CUpdate |       8192 | 2061,844   | 2,55 | 94.3273067%
+| CRC32C.TestCRC32C.testCRC32CUpdate |      16384 | 1035,416   | 1,497 | 94.3116061%
+| CRC32C.TestCRC32C.testCRC32CUpdate |      32768 | 518,726    | 0,791 | 94.3828034%
+| CRC32C.TestCRC32C.testCRC32CUpdate |      65536 | 254,691    | 0,841 | 94.2566892%
+
+Average % of score: 93.870276673%.
+
 ### [GHASH microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/GHASH)
 
 - disabled:
