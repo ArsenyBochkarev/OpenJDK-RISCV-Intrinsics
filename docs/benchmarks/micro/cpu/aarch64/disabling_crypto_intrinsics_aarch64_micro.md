@@ -1,50 +1,5 @@
 Results on enabling/disabling intrinsics for AArch64 platform:
 
-### [ChaCha20 microbench](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/ChaCha20)
-
-Intrinsic name: `_chacha20Block`.
-
-- disabled:
-
-| Benchmark                                  | (dataSize) |  (keyLength) | (mode) | (padding)  | (permutation) | (provider) | Mode  | Cnt |  Score     | Error     | Units |
-| ------------------------------------------ | ---------- | ------------ | ------ | ---------- | ------------- | ---------- | ----- | --- | ---------- | --------- | ----- |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |        256 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 | 207844.048 | ± 400.550 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |       1024 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  58724.011 | ±  63.746 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |       4096 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  15210.577 | ±  15.263 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |      16384 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |   3766.839 | ±   8.088 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |        256 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 | 196321.074 | ± 846.428 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |       1024 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  57332.821 | ± 147.301 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |       4096 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  14866.561 | ± 108.740 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |      16384 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |   3766.459 | ±  14.210 | ops/s |
-
-- enabled:
-
-| Benchmark                                  | (dataSize) |  (keyLength) | (mode) | (padding)  | (permutation) | (provider) | Mode  | Cnt |  Score     | Error     | Units |
-| ------------------------------------------ | ---------- | ------------ | ------ | ---------- | ------------- | ---------- | ----- | --- | ---------- | --------- | ----- |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |        256 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 | 216811.202 | ± 337.503 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |       1024 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  62062.530 | ±  93.727 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |       4096 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  16076.071 | ±  11.911 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |      16384 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |   4053.652 | ±   4.951 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |        256 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 | 207112.833 | ± 632.957 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |       1024 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  61341.314 | ± 117.296 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |       4096 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  16108.575 | ±  40.331 | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |      16384 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |   4047.235 | ±   6.854 | ops/s |
-
-- final results:
-
-| Benchmark                                  | (dataSize) | Score difference (enabled - disabled)    | Error (enabled + disabled) | % of score (100% * difference / enabled) | Units |
-| ------------------------------------------ | ---------- |  --------------------------------------- | -------------------------- | ---------------------------------------- | ----- |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |        256 |                                 8967,154 |                  ± 738,053 |                               4.1359274% | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |       1024 |                                 3338,519 |                  ± 157,473 |                               5.3792828% | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |       4096 |                                  865,494 |                   ± 27,174 |                               5.3837408% | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.decrypt |      16384 |                                  286,813 |                   ± 13,039 |                               7.0754224% | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |        256 |                                10791,759 |                 ± 1479,385 |                               5.2105699% | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |       1024 |                                 4008,493 |                  ± 254,597 |                               6.5347361% | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |       4096 |                                 1242,014 |                  ± 149,071 |                               7.7102661% | ops/s |
-| ChaCha20.CipherBench.ChaCha20Class.encrypt |      16384 |                                  280,776 |                   ± 21,064 |                               6.9374771% | ops/s |
-
-Average % of score: 6.0459278%.
-
 
 ### [Poly1305 microbench](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/Poly1305)
 
@@ -318,6 +273,51 @@ Average % of score: 93.870276673%.
 | GHASH.TestGHASH.updateGHASHStr |  b83b533708bf535d0aa6e52980d53b78 |         61353b4c2806934a777ff51fa22a4755699b2a714fcdc6f83766e5f97b6c742373806900e49f24b22b097544d4896b424989b5e1ebac0f07c23f4598 | thrpt |  12 |                                  937,366  |                   ± 13,646   |                            55,9529963%    |  ops/ms |
 
 Average % of score: 46,933591617%.
+
+### [ChaCha20 microbench](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/ChaCha20)
+
+Intrinsic name: `_chacha20Block`.
+
+- disabled:
+
+| Benchmark                                  | (dataSize) |  (keyLength) | (mode) | (padding)  | (permutation) | (provider) | Mode  | Cnt |  Score     | Error     | Units |
+| ------------------------------------------ | ---------- | ------------ | ------ | ---------- | ------------- | ---------- | ----- | --- | ---------- | --------- | ----- |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |        256 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 | 207844.048 | ± 400.550 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |       1024 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  58724.011 | ±  63.746 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |       4096 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  15210.577 | ±  15.263 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |      16384 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |   3766.839 | ±   8.088 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |        256 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 | 196321.074 | ± 846.428 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |       1024 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  57332.821 | ± 147.301 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |       4096 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  14866.561 | ± 108.740 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |      16384 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |   3766.459 | ±  14.210 | ops/s |
+
+- enabled:
+
+| Benchmark                                  | (dataSize) |  (keyLength) | (mode) | (padding)  | (permutation) | (provider) | Mode  | Cnt |  Score     | Error     | Units |
+| ------------------------------------------ | ---------- | ------------ | ------ | ---------- | ------------- | ---------- | ----- | --- | ---------- | --------- | ----- |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |        256 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 | 216811.202 | ± 337.503 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |       1024 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  62062.530 | ±  93.727 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |       4096 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  16076.071 | ±  11.911 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |      16384 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |   4053.652 | ±   4.951 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |        256 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 | 207112.833 | ± 632.957 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |       1024 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  61341.314 | ± 117.296 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |       4096 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |  16108.575 | ±  40.331 | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |      16384 |         256  |  None  | NoPadding  |     ChaCha20  |            | thrpt |  40 |   4047.235 | ±   6.854 | ops/s |
+
+- final results:
+
+| Benchmark                                  | (dataSize) | Score difference (enabled - disabled)    | Error (enabled + disabled) | % of score (100% * difference / enabled) | Units |
+| ------------------------------------------ | ---------- |  --------------------------------------- | -------------------------- | ---------------------------------------- | ----- |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |        256 |                                 8967,154 |                  ± 738,053 |                               4.1359274% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |       1024 |                                 3338,519 |                  ± 157,473 |                               5.3792828% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |       4096 |                                  865,494 |                   ± 27,174 |                               5.3837408% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.decrypt |      16384 |                                  286,813 |                   ± 13,039 |                               7.0754224% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |        256 |                                10791,759 |                 ± 1479,385 |                               5.2105699% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |       1024 |                                 4008,493 |                  ± 254,597 |                               6.5347361% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |       4096 |                                 1242,014 |                  ± 149,071 |                               7.7102661% | ops/s |
+| ChaCha20.CipherBench.ChaCha20Class.encrypt |      16384 |                                  280,776 |                   ± 21,064 |                               6.9374771% | ops/s |
+
+Average % of score: 6.0459278%.
 
 ### [AES microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/AES)
 
