@@ -514,6 +514,67 @@ Model           : Raspberry Pi 4 Model B Rev 1.4
 
 Due to Raspberry Pi 4 overheating issues, the CPU frequency was set to minimum (600 Mhz):
 
+Before disabling:
+```
+ubuntu@raspbpi4:~$ cpufreq-info
+cpufrequtils 008: cpufreq-info (C) Dominik Brodowski 2004-2009
+Report errors and bugs to cpufreq@vger.kernel.org, please.
+analyzing CPU 0:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 0.97 ms.
+  hardware limits: 600 MHz - 1.50 GHz
+  available frequency steps: 600 MHz, 700 MHz, 800 MHz, 900 MHz, 1000 MHz, 1.10 GHz, 1.20 GHz, 1.30 GHz, 1.40 GHz, 1.50 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 600 MHz and 1.50 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 900 MHz.
+  cpufreq stats: 600 MHz:53.95%, 700 MHz:6.24%, 800 MHz:2.14%, 900 MHz:1.36%, 1000 MHz:1.25%, 1.10 GHz:0.93%, 1.20 GHz:0.68%, 1.30 GHz:0.62%, 1.40 GHz:0.45%, 1.50 GHz:32.37%  (1975886)
+analyzing CPU 1:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 0.97 ms.
+  hardware limits: 600 MHz - 1.50 GHz
+  available frequency steps: 600 MHz, 700 MHz, 800 MHz, 900 MHz, 1000 MHz, 1.10 GHz, 1.20 GHz, 1.30 GHz, 1.40 GHz, 1.50 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 600 MHz and 1.50 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 900 MHz.
+  cpufreq stats: 600 MHz:53.95%, 700 MHz:6.24%, 800 MHz:2.14%, 900 MHz:1.36%, 1000 MHz:1.25%, 1.10 GHz:0.93%, 1.20 GHz:0.68%, 1.30 GHz:0.62%, 1.40 GHz:0.45%, 1.50 GHz:32.37%  (1975886)
+analyzing CPU 2:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 0.97 ms.
+  hardware limits: 600 MHz - 1.50 GHz
+  available frequency steps: 600 MHz, 700 MHz, 800 MHz, 900 MHz, 1000 MHz, 1.10 GHz, 1.20 GHz, 1.30 GHz, 1.40 GHz, 1.50 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 600 MHz and 1.50 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 900 MHz.
+  cpufreq stats: 600 MHz:53.95%, 700 MHz:6.24%, 800 MHz:2.14%, 900 MHz:1.36%, 1000 MHz:1.25%, 1.10 GHz:0.93%, 1.20 GHz:0.68%, 1.30 GHz:0.62%, 1.40 GHz:0.45%, 1.50 GHz:32.37%  (1975887)
+analyzing CPU 3:
+  driver: cpufreq-dt
+  CPUs which run at the same hardware frequency: 0 1 2 3
+  CPUs which need to have their frequency coordinated by software: 0 1 2 3
+  maximum transition latency: 0.97 ms.
+  hardware limits: 600 MHz - 1.50 GHz
+  available frequency steps: 600 MHz, 700 MHz, 800 MHz, 900 MHz, 1000 MHz, 1.10 GHz, 1.20 GHz, 1.30 GHz, 1.40 GHz, 1.50 GHz
+  available cpufreq governors: conservative, ondemand, userspace, powersave, performance, schedutil
+  current policy: frequency should be within 600 MHz and 1.50 GHz.
+                  The governor "ondemand" may decide which speed to use
+                  within this range.
+  current CPU frequency is 1.40 GHz.
+  cpufreq stats: 600 MHz:53.95%, 700 MHz:6.24%, 800 MHz:2.14%, 900 MHz:1.36%, 1000 MHz:1.25%, 1.10 GHz:0.93%, 1.20 GHz:0.68%, 1.30 GHz:0.62%, 1.40 GHz:0.45%, 1.50 GHz:32.37%  (1975887)
+```
+
+
+After disabling:
 ```
 $ cpufreq-info
 cpufrequtils 008: cpufreq-info (C) Dominik Brodowski 2004-2009
