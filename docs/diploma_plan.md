@@ -28,25 +28,42 @@ Java -- популярная, RISC-V -- набирает обороты, Syntaco
 Дальнейшая расстановка приоритетов идёт согласно результатам, полученным в ходе [исследований производительности на архитектуре AArch64](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/blob/main/docs/benchmarks/micro/cpu/aarch64/crypto_intrinsics_performance_overview.md), а также использованию в этих реализациях векторных инструкций (для реализации необходимо использовать расширение RVV для RISC-V):
 
 1. Poly1305 (`_poly1305_processBlocks`):
-    - Интринсик реализован, внутреннее ревью пройдено, ревью в OpenJDK идёт на данный момент;
+    - Реализован, интегрирован в OpenJDK;
 
 2. CRC32-related (`_updateBytesCRC32`, `_updateBytesCRC32C`):
-    - Оба реализованы, внутреннее ревью пройдено. PR в OpenJDK -- TBD;
+    - Оба реализованы;
+    - PR в OpenJDK --- в процессе прохождения ревью;
 
 3. Adler32 (`_updateBytesAdler32`):
-    - Используется RVV;
-    - TBD.
+    - Реализован.
 
 4. GHASH (`_ghash_processBlocks`):
-    - Используется RVV;
-    - TBD.
+    - Используется RVV + Vector Crypto;
+    - Реализован.
 
-5. AES-related:
-    - Полный список интринсиков: `_electronicCodeBook_decryptAESCrypt`, `_electronicCodeBook_encryptAESCrypt`, `_counterMode_AESCrypt`, `cipherBlockChaining_decryptAESCrypt`, `_cipherBlockChaining_encryptAESCrypt`, `_aescrypt_decryptBlock`, `_aescrypt_encryptBlock`, _galoisCounterMode_AESCrypt;
-    - Приоритет самый низкий, поскольку на данный момент невозможно измерить производительность на RISC-V.
+5. AES (`_aescrypt_decryptBlock`, `_aescrypt_encryptBlock`):
+    - Используется RVV + Vector Crypto;
+    - Оба реализованы;
 
-Для каждого из реализованных интринсиков:
-1. Гарантируется корректность работы путём запуска соответствующего ему jtreg-теста;
-2. Измеряется перформанс на соответствующем ему JMH микробенчмарке.
+6. AES CBC (`cipherBlockChaining_decryptAESCrypt`, `_cipherBlockChaining_encryptAESCrypt`):
+    - Используется RVV + Vector Crypto;
+    - Оба реализованы;
+
+7. AES CTR (`_counterMode_AESCrypt`):
+    - Используется RVV + Vector Crypto;
+    - In progress;
+
+8. AES GCM (`_galoisCounterMode_AESCrypt`):
+    - Используется RVV + Vector Crypto;
+    - TBD;
+    - Используется только в случае, когда применими как AES-related, так и GHASH интринсики;
+
+9. AES ECB (`_electronicCodeBook_decryptAESCrypt`, `_electronicCodeBook_encryptAESCrypt`):
+    - TBD;
+    - Приоритет самый низкий, поскольку на момент 10-march-24 отсутствуют в OpenJDK для AArch64.
+
+Для каждого из реализованных интринсиков гарантируется корректность работы путём запуска соответствующего ему jtreg-теста;
+Для интринсиков без векторных расширений:
+1. Измеряется перформанс на соответствующем ему JMH микробенчмарке
     - В случае отсутствия необходимого JMH микробенчмарка таковой создаётся;
-3. Используется опция `-prof perfasm` при запуске микробенчмарка для отслеживания наиболее "горячих" мест реализованных интринсиков, чтобы, при наличии такой возможности, оптимизировать.
+2. Используется опция `-prof perfasm` при запуске микробенчмарка для отслеживания наиболее "горячих" мест реализованных интринсиков, чтобы, при наличии такой возможности, оптимизировать.
