@@ -9,7 +9,7 @@ Crypto domain intrinsics progress overview:
     - Wait for boards with vector crypto extension to be available on the market;
     - Open PR to upstream;
 - `_aescrypt_decryptBlock`, `_aescrypt_encryptBlock`: completed. Next up: internal review;
-- `cipherBlockChaining_decryptAESCrypt`, `_cipherBlockChaining_encryptAESCrypt`: to-do. Next up: internal review;
-- `_counterMode_AESCrypt`: in progress;
-- `_galoisCounterMode_AESCrypt`: to-do;
+- `cipherBlockChaining_decryptAESCrypt`, `_cipherBlockChaining_encryptAESCrypt`: completed. Next up: internal review;
+- `_counterMode_AESCrypt`: completed. Next up: internal review;
+- `_galoisCounterMode_AESCrypt`: in progress;
 - `_electronicCodeBook_decryptAESCrypt`, `_electronicCodeBook_encryptAESCrypt`: to-do;
