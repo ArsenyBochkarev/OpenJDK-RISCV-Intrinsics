@@ -51,11 +51,11 @@ Java -- популярная, RISC-V -- набирает обороты, Syntaco
 
 7. AES CTR (`_counterMode_AESCrypt`):
     - Используется RVV + Vector Crypto;
-    - In progress;
+    - Реализован;
 
 8. AES GCM (`_galoisCounterMode_AESCrypt`):
     - Используется RVV + Vector Crypto;
-    - TBD;
+    - In progress;
     - Используется только в случае, когда применими как AES-related, так и GHASH интринсики;
 
 9. AES ECB (`_electronicCodeBook_decryptAESCrypt`, `_electronicCodeBook_encryptAESCrypt`):
