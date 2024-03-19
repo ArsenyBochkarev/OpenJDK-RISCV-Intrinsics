@@ -3,8 +3,7 @@ Crypto domain intrinsics progress overview:
 - `_updateBytesCRC32`: completed, internal review passed, [review in OpenJDK is in progress](https://github.com/openjdk/jdk/pull/17046);
 - `_updateBytesCRC32C`: completed, internal review passed. Next up:
     - Open PR to upstream;
-- `_updateBytesAdler32`: completed, internal review passed. Next up:
-    - Open PR to upstream;
+- `_updateBytesAdler32`: completed, internal review passed, [review in OpenJDK is in progress](https://github.com/openjdk/jdk/pull/18382)
 - `_ghash_processBlocks`: completed, internal review passed. Next up:
     - Wait for boards with vector crypto extension to be available on the market;
     - Open PR to upstream;
