@@ -40,7 +40,7 @@ public class AESBench extends CryptoBase {
 
     public static final int SET_SIZE = 128;
 
-    @Param({"AES/ECB/NoPadding", "AES/ECB/PKCS5Padding", "AES/CBC/NoPadding", "AES/CBC/PKCS5Padding"})
+    @Param({"AES/ECB/NoPadding", "AES/ECB/PKCS5Padding", "AES/CBC/NoPadding", "AES/CBC/PKCS5Padding", "AES/CTR/NoPadding"})
     private String algorithm;
 
     @Param({"128", "192", "256"})
