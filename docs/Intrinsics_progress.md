@@ -7,8 +7,8 @@ Crypto domain intrinsics progress overview:
 - `_ghash_processBlocks`: completed, internal review passed. Next up:
     - Wait for boards with vector crypto extension to be available on the market;
     - Open PR to upstream;
-- `_aescrypt_decryptBlock`, `_aescrypt_encryptBlock`: completed. Next up: internal review;
+- `_aescrypt_decryptBlock`, `_aescrypt_encryptBlock`: completed. Internal review is in progress;
 - `cipherBlockChaining_decryptAESCrypt`, `_cipherBlockChaining_encryptAESCrypt`: completed. Next up: internal review;
 - `_counterMode_AESCrypt`: completed. Next up: internal review;
 - `_galoisCounterMode_AESCrypt`: completed. Next up: internal review;
-- `_electronicCodeBook_decryptAESCrypt`, `_electronicCodeBook_encryptAESCrypt`: to-do;
+- `_electronicCodeBook_decryptAESCrypt`, `_electronicCodeBook_encryptAESCrypt`: completed. Next up: internal review;
