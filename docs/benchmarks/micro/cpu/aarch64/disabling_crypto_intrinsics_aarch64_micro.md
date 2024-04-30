@@ -4,6 +4,10 @@ Results on enabling/disabling intrinsics for AArch64 platform:
 - [CRC32](#crc32-microbenchmark)
 - [Adler32](#adler32-microbench)
 - [AES](#aes-microbenchmark)
+  - [AES single block](#aes-single-block-encryption)
+  - [AES CBC](#aes-cbc)
+  - [AES ECB](#aes-ecb)
+  - [AES CTR](#aes-ctr)
 - [AES-GCM](#aes-gcm-microbenchmark)
 - [GHASH](#ghash-microbenchmark)
 - [Full test stands overview](#full-test-stand-overview)
@@ -274,7 +278,9 @@ Average % of score: 6.0459278%.
 
 ### [AES microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/AES)
 
-Intrinsics name: `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`.
+#### AES single block encryption
+
+The measurements were performed for ECB mode. Intrinsics name: `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`.
 
 - Both disabled:
 
@@ -363,97 +369,107 @@ Intrinsics name: `_aescrypt_encryptBlock`, `_aescrypt_decryptBlock`.
 | AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        192  |                                     10.993 |                 ±  294.511 |                               0.0329048% | ops/s |
 | AES.AESBench.encrypt | AES/CBC/PKCS5Padding  |     16384  |        256  |                                     50.542 |                 ±  339.186 |                               0.1606772% | ops/s |
 
+#### AES CBC
 
 Intrinsics name: `cipherBlockChaining_decryptAESCrypt`, `_cipherBlockChaining_encryptAESCrypt`.
 
 - Both enabled:
 
-Benchmark                      (algorithm)  (dataSize)  (keyLength)  (provider)   Mode  Cnt      Score      Error  Units
-AES.AESBench.decrypt     AES/CBC/NoPadding       16384          128              thrpt   40  98361.975 ± 2432.594  ops/s
-AES.AESBench.decrypt     AES/CBC/NoPadding       16384          192              thrpt   40  87581.136 ± 2089.054  ops/s
-AES.AESBench.decrypt     AES/CBC/NoPadding       16384          256              thrpt   40  79341.288 ±  439.097  ops/s
-AES.AESBench.decrypt  AES/CBC/PKCS5Padding       16384          128              thrpt   40  64062.260 ±  282.793  ops/s
-AES.AESBench.decrypt  AES/CBC/PKCS5Padding       16384          192              thrpt   40  60533.969 ±  365.981  ops/s
-AES.AESBench.decrypt  AES/CBC/PKCS5Padding       16384          256              thrpt   40  56208.349 ± 1549.510  ops/s
-AES.AESBench.encrypt     AES/CBC/NoPadding       16384          128              thrpt   40  58799.729 ±  194.803  ops/s
-AES.AESBench.encrypt     AES/CBC/NoPadding       16384          192              thrpt   40  53295.596 ±  195.141  ops/s
-AES.AESBench.encrypt     AES/CBC/NoPadding       16384          256              thrpt   40  48360.097 ±  250.391  ops/s
-AES.AESBench.encrypt  AES/CBC/PKCS5Padding       16384          128              thrpt   40  35492.881 ±  182.200  ops/s
-AES.AESBench.encrypt  AES/CBC/PKCS5Padding       16384          192              thrpt   40  33442.130 ±  162.938  ops/s
-AES.AESBench.encrypt  AES/CBC/PKCS5Padding       16384          256              thrpt   40  31362.621 ±  193.425  ops/s
+| Benchmark           |           (algorithm) | (dataSize) | (keyLength) | (provider) |  Mode | Cnt  |    Score   |   Error | Units |
+| ------------------ | ----------------------- | ---------- | ----------- | --------- | ------ | --- | ----------- | ----- | ------ |
+| AES.AESBench.decrypt |     AES/CBC/NoPadding  |     16384  |        128   |         |  thrpt |  40 | 98361.975 | ± 2432.594 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding   |    16384   |       192    |        | thrpt |  40 | 87581.136 | ± 2089.054 | ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding   |    16384   |       256    |         | thrpt |  40 | 79341.288 | ±  439.097 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding   |    16384   |       128    |         | thrpt |  40 | 64062.260 | ±  282.793 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding   |    16384   |       192    |         | thrpt |  40 | 60533.969 | ±  365.981 | ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding   |    16384   |       256    |         | thrpt |  40 | 56208.349 | ± 1549.510 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding   |    16384   |       128    |         | thrpt |  40 | 58799.729 | ±  194.803 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding   |    16384   |       192    |         | thrpt |  40 | 53295.596 | ±  195.141 | ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding   |    16384   |       256    |         | thrpt |  40 | 48360.097 | ±  250.391 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding   |    16384   |       128    |         | thrpt |  40 | 35492.881 | ±  182.200 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding   |    16384   |       192    |         | thrpt |  40 | 33442.130 | ±  162.938 | ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding   |    16384   |       256    |         | thrpt |  40 | 31362.621 | ±  193.425 | ops/s |
 
 
 - Both disabled:
 
-AES.AESBench.decrypt     AES/CBC/NoPadding       16384          128              thrpt   40  4843.357 ± 34.868  ops/s
-AES.AESBench.decrypt     AES/CBC/NoPadding       16384          192              thrpt   40  4000.361 ±  9.936  ops/s
-AES.AESBench.decrypt     AES/CBC/NoPadding       16384          256              thrpt   40  3527.723 ±  5.660  ops/s
-AES.AESBench.decrypt  AES/CBC/PKCS5Padding       16384          128              thrpt   40  4711.391 ± 11.732  ops/s
-AES.AESBench.decrypt  AES/CBC/PKCS5Padding       16384          192              thrpt   40  3886.881 ±  9.915  ops/s
-AES.AESBench.decrypt  AES/CBC/PKCS5Padding       16384          256              thrpt   40  3437.542 ±  5.830  ops/s
-AES.AESBench.encrypt     AES/CBC/NoPadding       16384          128              thrpt   40  4727.233 ± 14.824  ops/s
-AES.AESBench.encrypt     AES/CBC/NoPadding       16384          192              thrpt   40  4045.838 ± 10.918  ops/s
-AES.AESBench.encrypt     AES/CBC/NoPadding       16384          256              thrpt   40  3656.357 ± 11.961  ops/s
-AES.AESBench.encrypt  AES/CBC/PKCS5Padding       16384          128              thrpt   40  4543.346 ±  6.738  ops/s
-AES.AESBench.encrypt  AES/CBC/PKCS5Padding       16384          192              thrpt   40  3912.668 ±  8.405  ops/s
-AES.AESBench.encrypt  AES/CBC/PKCS5Padding       16384          256              thrpt   40  3534.509 ±  7.812  ops/s
+| Benchmark           |           (algorithm) | (dataSize) | (keyLength) | (provider) |  Mode | Cnt  |    Score   |   Error | Units |
+| ------------------ | ----------------------- | ---------- | ----------- | --------- | ------ | --- | ----------- | ----- | ------ |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding       | 16384 |          128   |           | thrpt  | 40 |  4843.357 | ± 34.868  |  ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding       | 16384 |          192    |          | thrpt  | 40 |  4000.361 | ±  9.936  |  ops/s |
+| AES.AESBench.decrypt |    AES/CBC/NoPadding       | 16384 |          256   |           | thrpt  | 40 |  3527.723 | ±  5.660  |  ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding       | 16384 |          128   |           | thrpt  | 40 |  4711.391 | ± 11.732  |  ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding       | 16384 |          192   |           | thrpt  | 40 |  3886.881 | ±  9.915  |  ops/s |
+| AES.AESBench.decrypt | AES/CBC/PKCS5Padding       | 16384 |          256   |           | thrpt  | 40 |  3437.542 | ±  5.830  |  ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding       | 16384 |          128   |          | thrpt  | 40 |  4727.233 | ± 14.824  |  ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding       | 16384 |          192   |           | thrpt  | 40 |  4045.838 | ± 10.918  |  ops/s |
+| AES.AESBench.encrypt |    AES/CBC/NoPadding       | 16384 |          256   |           | thrpt  | 40 |  3656.357 | ± 11.961  |  ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding       | 16384 |          128   |           | thrpt  | 40 |  4543.346 | ±  6.738  |  ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding       | 16384 |          192   |           | thrpt  | 40 |  3912.668 | ±  8.405  |  ops/s |
+| AES.AESBench.encrypt | AES/CBC/PKCS5Padding       | 16384 |          256    |          | thrpt  | 40 |  3534.509 | ±  7.812  |  ops/s |
 
-
+#### AES CTR
 Intrinsic name: `_counterMode_AESCrypt`.
 
 - Enabled:
 
-Benchmark                   (algorithm)  (dataSize)  (keyLength)  (provider)   Mode  Cnt       Score      Error  Units
-AES.AESBench.decrypt  AES/CTR/NoPadding       16384          128              thrpt   40  100645.692 ± 4013.679  ops/s
-AES.AESBench.decrypt  AES/CTR/NoPadding       16384          192              thrpt   40   88314.073 ± 2781.598  ops/s
-AES.AESBench.decrypt  AES/CTR/NoPadding       16384          256              thrpt   40   80141.006 ± 1972.228  ops/s
-AES.AESBench.encrypt  AES/CTR/NoPadding       16384          128              thrpt   40  102624.785 ± 3051.622  ops/s
-AES.AESBench.encrypt  AES/CTR/NoPadding       16384          192              thrpt   40   88222.155 ± 3093.865  ops/s
-AES.AESBench.encrypt  AES/CTR/NoPadding       16384          256              thrpt   40   81248.308 ± 2148.645  ops/s
+| Benchmark           |           (algorithm) | (dataSize) | (keyLength) | (provider) |  Mode | Cnt  |    Score   |   Error | Units |
+| ------------------ | ----------------------- | ---------- | ----------- | --------- | ------ | --- | ----------- | ----- | ------ |
+| AES.AESBench.decrypt | AES/CTR/NoPadding     |  16384       |   128 |       |    |  thrpt |  40 | 100645.692 | ± 4013.679 | ops/s |
+| AES.AESBench.decrypt | AES/CTR/NoPadding     |  16384       |   192  |      |    |  thrpt |  40 |  88314.073 | ± 2781.598 | ops/s |
+| AES.AESBench.decrypt | AES/CTR/NoPadding     |  16384       |   256 |       |    |  thrpt |  40 |  80141.006 | ± 1972.228 | ops/s |
+| AES.AESBench.encrypt | AES/CTR/NoPadding     |  16384       |   128 |       |    |  thrpt |  40 | 102624.785 | ± 3051.622 | ops/s |
+| AES.AESBench.encrypt | AES/CTR/NoPadding     |  16384       |   192 |       |    |  thrpt |  40 |  88222.155 | ± 3093.865 | ops/s |
+| AES.AESBench.encrypt | AES/CTR/NoPadding     |  16384       |   256 |       |     | thrpt |  40 |  81248.308 | ± 2148.645 | ops/s |
 
 - Disabled:
 
-Benchmark                   (algorithm)  (dataSize)  (keyLength)  (provider)   Mode  Cnt     Score    Error  Units
-AES.AESBench.decrypt  AES/CTR/NoPadding       16384          128              thrpt   40  4155.513 ± 22.447  ops/s
-AES.AESBench.decrypt  AES/CTR/NoPadding       16384          192              thrpt   40  3644.200 ± 14.133  ops/s
-AES.AESBench.decrypt  AES/CTR/NoPadding       16384          256              thrpt   40  3316.264 ± 12.483  ops/s
-AES.AESBench.encrypt  AES/CTR/NoPadding       16384          128              thrpt   40  4163.476 ±  9.336  ops/s
-AES.AESBench.encrypt  AES/CTR/NoPadding       16384          192              thrpt   40  3637.040 ± 14.382  ops/s
-AES.AESBench.encrypt  AES/CTR/NoPadding       16384          256              thrpt   40  3312.446 ± 13.983  ops/s
+| Benchmark           |           (algorithm) | (dataSize) | (keyLength) | (provider) |  Mode | Cnt  |    Score   |   Error | Units |
+| ------------------ | ----------------------- | ---------- | ----------- | --------- | ------ | --- | ----------- | ----- | ------ |
+| AES.AESBench.decrypt | AES/CTR/NoPadding       | 16384 |          128              | thrpt  | 40 |  4155.513 | ± 22.447 | ops/s |
+| AES.AESBench.decrypt | AES/CTR/NoPadding       | 16384 |          192              | thrpt  | 40 |  3644.200 | ± 14.133 | ops/s |
+| AES.AESBench.decrypt | AES/CTR/NoPadding       | 16384 |          256              | thrpt  | 40 |  3316.264 | ± 12.483 | ops/s |
+| AES.AESBench.encrypt | AES/CTR/NoPadding       | 16384 |          128              | thrpt  | 40 |  4163.476 | ±  9.336 | ops/s |
+| AES.AESBench.encrypt | AES/CTR/NoPadding       | 16384 |          192              | thrpt  | 40 |  3637.040 | ± 14.382 | ops/s |
+| AES.AESBench.encrypt | AES/CTR/NoPadding       | 16384 |          256              | thrpt  | 40 |  3312.446 | ± 13.983 | ops/s |
 
 
+#### AES ECB
 Intrinsics name: `_electronicCodeBook_decryptAESCrypt`, `_electronicCodeBook_encryptAESCrypt`.
 
 - Both enabled:
 
-Benchmark                      (algorithm)  (dataSize)  (keyLength)  (provider)   Mode  Cnt     Score    Error  Units
-AES.AESBench.decrypt     AES/ECB/NoPadding       16384          128              thrpt   40  5777.190 ± 25.132  ops/s
-AES.AESBench.decrypt     AES/ECB/NoPadding       16384          192              thrpt   40  4594.303 ± 11.090  ops/s
-AES.AESBench.decrypt     AES/ECB/NoPadding       16384          256              thrpt   40  3973.631 ± 16.785  ops/s
-AES.AESBench.decrypt  AES/ECB/PKCS5Padding       16384          128              thrpt   40  5542.104 ± 13.058  ops/s
-AES.AESBench.decrypt  AES/ECB/PKCS5Padding       16384          192              thrpt   40  4394.295 ± 12.109  ops/s
-AES.AESBench.decrypt  AES/ECB/PKCS5Padding       16384          256              thrpt   40  3823.424 ±  9.662  ops/s
-AES.AESBench.encrypt     AES/ECB/NoPadding       16384          128              thrpt   40  5302.327 ± 20.088  ops/s
-AES.AESBench.encrypt     AES/ECB/NoPadding       16384          192              thrpt   40  4441.246 ± 15.692  ops/s
-AES.AESBench.encrypt     AES/ECB/NoPadding       16384          256              thrpt   40  3958.587 ±  9.024  ops/s
-AES.AESBench.encrypt  AES/ECB/PKCS5Padding       16384          128              thrpt   40  5098.785 ±  9.628  ops/s
-AES.AESBench.encrypt  AES/ECB/PKCS5Padding       16384          192              thrpt   40  4335.216 ±  8.330  ops/s
-AES.AESBench.encrypt  AES/ECB/PKCS5Padding       16384          256              thrpt   40  3878.294 ±  8.865  ops/s
+| Benchmark           |           (algorithm) | (dataSize) | (keyLength) | (provider) |  Mode | Cnt  |    Score   |   Error | Units |
+| ------------------ | ----------------------- | ---------- | ----------- | --------- | ------ | --- | ----------- | ----- | ------ |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding       | 16384 |          128   |           | thrpt  | 40 |  5777.190 | ± 25.132 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding       | 16384 |          192   |           | thrpt  | 40 |  4594.303 | ± 11.090 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding       | 16384 |          256   |           | thrpt  | 40 |  3973.631 | ± 16.785 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding       | 16384 |          128   |           | thrpt  | 40 |  5542.104 | ± 13.058 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding       | 16384 |          192   |           | thrpt  | 40 |  4394.295 | ± 12.109 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding       | 16384 |          256   |           | thrpt  | 40 |  3823.424 | ±  9.662 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding       | 16384 |          128   |           | thrpt  | 40 |  5302.327 | ± 20.088 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding       | 16384 |          192   |           | thrpt  | 40 |  4441.246 | ± 15.692 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding       | 16384 |          256   |           | thrpt  | 40 |  3958.587 | ±  9.024 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding       | 16384 |          128   |           | thrpt  | 40 |  5098.785 | ±  9.628 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding       | 16384 |          192   |           | thrpt  | 40 |  4335.216 | ±  8.330 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding       | 16384 |          256   |           | thrpt  | 40 |  3878.294 | ±  8.865 | ops/s |
 
 - Both disabled:
 
-AES.AESBench.decrypt     AES/ECB/NoPadding       16384          128              thrpt   40  50318.500 ± 1271.172  ops/s
-AES.AESBench.decrypt     AES/ECB/NoPadding       16384          192              thrpt   40  45688.514 ± 1227.200  ops/s
-AES.AESBench.decrypt     AES/ECB/NoPadding       16384          256              thrpt   40  44044.193 ±  404.360  ops/s
-AES.AESBench.decrypt  AES/ECB/PKCS5Padding       16384          128              thrpt   40  40160.658 ±  542.879  ops/s
-AES.AESBench.decrypt  AES/ECB/PKCS5Padding       16384          192              thrpt   40  36172.835 ± 1698.906  ops/s
-AES.AESBench.decrypt  AES/ECB/PKCS5Padding       16384          256              thrpt   40  35820.989 ±  675.413  ops/s
-AES.AESBench.encrypt     AES/ECB/NoPadding       16384          128              thrpt   40  47145.485 ±  985.241  ops/s
-AES.AESBench.encrypt     AES/ECB/NoPadding       16384          192              thrpt   40  45380.545 ±  393.660  ops/s
-AES.AESBench.encrypt     AES/ECB/NoPadding       16384          256              thrpt   40  40899.002 ± 1878.081  ops/s
-AES.AESBench.encrypt  AES/ECB/PKCS5Padding       16384          128              thrpt   40  32769.163 ±  448.900  ops/s
-AES.AESBench.encrypt  AES/ECB/PKCS5Padding       16384          192              thrpt   40  30833.535 ±  317.452  ops/s
-AES.AESBench.encrypt  AES/ECB/PKCS5Padding       16384          256              thrpt   40  30452.329 ±  623.586  ops/s
+| Benchmark           |           (algorithm) | (dataSize) | (keyLength) | (provider) |  Mode | Cnt  |    Score   |   Error | Units |
+| ------------------ | ----------------------- | ---------- | ----------- | --------- | ------ | --- | ----------- | ----- | ------ |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding       | 16384 |          128     |         | thrpt  | 40 |  50318.500 | ± 1271.172 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding       | 16384 |          192      |        | thrpt  | 40 |  45688.514 | ± 1227.200 | ops/s |
+| AES.AESBench.decrypt |    AES/ECB/NoPadding       | 16384 |          256     |         | thrpt  | 40 |  44044.193 | ±  404.360 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding       | 16384 |          128      |        | thrpt  | 40 |  40160.658 | ±  542.879 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding       | 16384 |          192      |        | thrpt  | 40 |  36172.835 | ± 1698.906 | ops/s |
+| AES.AESBench.decrypt | AES/ECB/PKCS5Padding       | 16384 |          256      |        | thrpt  | 40 |  35820.989 | ±  675.413 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding       | 16384 |          128       |       | thrpt  | 40 |  47145.485 | ±  985.241 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding       | 16384 |          192       |       | thrpt  | 40 |  45380.545 | ±  393.660 | ops/s |
+| AES.AESBench.encrypt |    AES/ECB/NoPadding       | 16384 |          256      |        | thrpt  | 40 |  40899.002 | ± 1878.081 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding       | 16384 |          128      |        | thrpt  | 40 |  32769.163 | ±  448.900 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding       | 16384 |          192      |        | thrpt  | 40 |  30833.535 | ±  317.452 | ops/s |
+| AES.AESBench.encrypt | AES/ECB/PKCS5Padding       | 16384 |          256      |        | thrpt  | 40 |  30452.329 | ±  623.586 | ops/s |
 
 ### [AES GCM microbenchmark](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/AESGCM)
 
