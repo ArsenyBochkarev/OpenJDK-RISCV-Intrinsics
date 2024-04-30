@@ -1,5 +1,12 @@
 Results on enabling/disabling intrinsics for AArch64 platform:
 
+- [Poly1305](#poly1305-microbench)
+- [CRC32](#crc32-microbenchmark)
+- [Adler32](#adler32-microbench)
+- [AES](#aes-microbenchmark)
+- [AES-GCM](#aes-gcm-microbenchmark)
+- [GHASH](#ghash-microbenchmark)
+- [Full test stands overview](#full-test-stand-overview)
 
 ### [Poly1305 microbench](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/Poly1305)
 
