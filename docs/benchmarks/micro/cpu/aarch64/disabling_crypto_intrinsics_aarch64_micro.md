@@ -11,6 +11,8 @@ Results on enabling/disabling intrinsics for AArch64 platform:
 - [AES-GCM](#aes-gcm-microbenchmark)
 - [GHASH](#ghash-microbenchmark)
 - [Full test stands overview](#full-test-stand-overview)
+  - [Radxa Rock5 Model B](#radxa-rock5-model-b)
+  - [Raspberry Pi 4](#raspberry-pi-4)
 
 ### [Poly1305 microbench](https://github.com/ArsenyBochkarev/OpenJDK-RISCV-Intrinsics/tree/main/benchmarks/Poly1305)
 
