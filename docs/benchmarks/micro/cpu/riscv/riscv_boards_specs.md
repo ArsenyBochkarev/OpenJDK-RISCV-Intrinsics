@@ -91,3 +91,25 @@ uarch		: sifive,u74-mc
 $ uname -a
 Linux starfive 5.15.0-starfive #1 SMP Wed Aug 23 11:18:20 CST 2023 riscv64 GNU/Linux
 ```
+
+#### Kendryte K230
+
+Full board name: "Kendryte K230".
+
+```
+Architecture:          riscv64
+  Byte Order:          Little Endian
+CPU(s):                1
+  On-line CPU(s) list: 0
+```
+
+```
+processor	: 0
+hart		: 0
+isa		: rv64imafdcvxthead
+mmu		: sv39
+```
+
+```
+Linux vkempik-len 5.10.4+ #1 SMP Wed Dec 6 13:08:50 EET 2023 riscv64 GNU/Linux
+```
