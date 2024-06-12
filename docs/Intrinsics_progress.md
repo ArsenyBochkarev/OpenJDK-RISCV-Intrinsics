@@ -1,0 +1,14 @@
+Crypto domain intrinsics progress overview:
+- `_poly1305_processBlocks`: [integrated](https://github.com/openjdk/jdk/pull/16417);
+- `_updateBytesCRC32`: completed, internal review passed, [review in OpenJDK is in progress](https://github.com/openjdk/jdk/pull/17046);
+- `_updateBytesCRC32C`: completed, internal review passed. Next up:
+    - Wait for `_updateBytesCRC32` to be upstreamed;
+- `_updateBytesAdler32`: completed, internal review passed, [review in OpenJDK is in progress](https://github.com/openjdk/jdk/pull/18382);
+- `_ghash_processBlocks`: completed, internal review passed. Next up:
+    - Wait for boards with vector crypto extension to be available on the market;
+    - Open PR to upstream;
+- `_aescrypt_decryptBlock`, `_aescrypt_encryptBlock`: completed. Internal review is in progress;
+- `cipherBlockChaining_decryptAESCrypt`, `_cipherBlockChaining_encryptAESCrypt`: completed. Next up: internal review;
+- `_counterMode_AESCrypt`: completed. Next up: internal review;
+- `_galoisCounterMode_AESCrypt`: completed. Next up: internal review;
+- `_electronicCodeBook_decryptAESCrypt`, `_electronicCodeBook_encryptAESCrypt`: completed. Next up: internal review;
